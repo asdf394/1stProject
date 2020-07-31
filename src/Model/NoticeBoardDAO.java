@@ -9,19 +9,19 @@ import java.util.ArrayList;
 
 public class NoticeBoardDAO {
 
-	// 1. ì‚¬ìš© í•  í•„ë“œ ê°€ì ¸ì˜¨ë‹¤
+	// 1. »ç¿ë ÇÒ ÇÊµå °¡Á®¿Â´Ù
 		Connection conn = null;
 		PreparedStatement psmt = null;	
 		ResultSet rs = null;
 		
 		
 		
-		// 2. ë™ì  ë¡œë”©
+		// 2. µ¿Àû ·Îµù
 		public void getConnect() {
 			try {
 				Class.forName("oracle.jdbc.driver.OracleDriver");
 
-				// 2.DBì—°ê²°
+				// 2.DB¿¬°á
 				
 				String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 				String user_id = "hr";
@@ -31,9 +31,9 @@ public class NoticeBoardDAO {
 				conn = DriverManager.getConnection(url, user_id, user_pw);
 				
 				if(conn != null) {
-					System.out.println("ì—°ê²° ì„±ê³µ");
+					System.out.println("¿¬°á ¼º°ø");
 				}else {
-					System.out.println("ì—°ê²° ì‹¤íŒ¨");
+					System.out.println("¿¬°á ½ÇÆÐ");
 				}
 				
 			} catch (Exception e) {
@@ -43,7 +43,7 @@ public class NoticeBoardDAO {
 			
 			
 			
-			// close ë©”ì†Œë“œ ê°€ì ¸ì˜¤ê¸°
+			// close ¸Þ¼Òµå °¡Á®¿À±â
 		}
 			public void close() {
 				
@@ -104,7 +104,7 @@ public class NoticeBoardDAO {
 					cnt = psmt.executeUpdate();
 					
 					if(cnt>=0) {
-						System.out.println("ì„±ê³µ");
+						System.out.println("¼º°ø");
 					}
 					
 				} catch (SQLException e) {
@@ -116,7 +116,7 @@ public class NoticeBoardDAO {
 				return cnt;
 					
 			}
-			public ArrayList<NoticeBoardDTO> search(String check) { // ê²Œì‹œê¸€ ì¡°íšŒ
+			public ArrayList<NoticeBoardDTO> search(String check) { // °Ô½Ã±Û Á¶È¸
 			      ArrayList<NoticeBoardDTO> searchList = new ArrayList<NoticeBoardDTO>();
 			      System.out.println(check);
 			      getConnect();
