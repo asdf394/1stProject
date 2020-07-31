@@ -15,12 +15,19 @@ import javax.swing.SwingConstants;
 import Model.MemberDAO;
 import Model.MemberDTO;
 
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import javax.swing.DropMode;
+
 public class LoginGUI {
 
 	private JFrame frame;
-	private JTextField tf_id;
-	private JPasswordField pf_login_pw;
 	MemberDTO dto;
+	private JTextField tf_id;
+	private JLabel lblNewLabel_1;
+	private JPasswordField pf_pw;
 
 	/**
 	 * Launch the application.
@@ -50,78 +57,46 @@ public class LoginGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 956, 498);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(null);
-		
-		JLabel lbl_1 = new JLabel("\uB85C\uADF8\uC778");
-		lbl_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		lbl_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_1.setBounds(12, 21, 410, 42);
-		frame.getContentPane().add(lbl_1);
-		
-		JLabel lbl_2 = new JLabel("\uC544 \uC774 \uB514");
-		lbl_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_2.setBounds(0, 88, 78, 29);
-		frame.getContentPane().add(lbl_2);
-		
-		JLabel lbl_3 = new JLabel("\uBE44\uBC00\uBC88\uD638");
-		lbl_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_3.setBounds(0, 141, 78, 29);
-		frame.getContentPane().add(lbl_3);
-		
+
+		lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\\uBB34\uC81C.png"));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setForeground(new Color(255, 255, 255));
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 21));
+		lblNewLabel_1.setBounds(178, 44, 467, 60);
+		frame.getContentPane().add(lblNewLabel_1);
+
 		tf_id = new JTextField();
-		tf_id.setBounds(90, 85, 310, 32);
+		tf_id.setForeground(SystemColor.scrollbar);
+		tf_id.setText("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
+		tf_id.setToolTipText("");
+		tf_id.setBackground(new Color(255, 255, 255));
+		tf_id.setBounds(481, 235, 218, 30);
 		frame.getContentPane().add(tf_id);
 		tf_id.setColumns(10);
-		
-		JButton btn_login = new JButton("\uB85C\uADF8\uC778");
-		btn_login.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				MemberDAO dao = new MemberDAO();
-				String id = tf_id.getText();
-				String pw = pf_login_pw.getText();
-				MemberDTO dto = dao.loginSelect(id,pw);
-				if(dto == null) {
-					// 다이얼로그 띄우기
-					// 에러메세지 -> 4개 매개변수
-					// 빌드패스 사용
-					JOptionPane.showMessageDialog(null, "로그인 실패", "로그인", JOptionPane.ERROR_MESSAGE);
-					pf_login_pw.setText(""); // 비밀번호만 사라진다
-				}else {
-					frame.dispose();
-					MainGUI mainGui = new MainGUI(dto);
-					mainGui.loginInfo(dto);
-				}
-			
-			}
-		});
-		btn_login.setBounds(54, 194, 155, 32);
-		frame.getContentPane().add(btn_login);
-		
-		JButton btn_close = new JButton("\uB2EB\uAE30");
-		btn_close.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // 창 닫기
-				MainGUI mainGui = new MainGUI(dto); // 메인 창 띄우기 객체 생성
-			}
-		});
-		btn_close.setBounds(233, 194, 155, 32);
-		frame.getContentPane().add(btn_close);
-		
-		pf_login_pw = new JPasswordField();
-		pf_login_pw.setBounds(90, 138, 310, 32);
-		frame.getContentPane().add(pf_login_pw);
+
+		pf_pw = new JPasswordField();
+		pf_pw.setToolTipText("");
+		pf_pw.setBackground(new Color(255, 255, 255));
+		pf_pw.setBounds(481, 299, 218, 30);
+		frame.getContentPane().add(pf_pw);
+
+		JButton btn_singIn = new JButton("");
+		btn_singIn.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\\uB85C\uADF8\uC778.png"));
+		btn_singIn.setBounds(510, 359, 171, 38);
+		frame.getContentPane().add(btn_singIn);
+
+		JButton btn_singUP = new JButton("New button");
+		btn_singUP.setBounds(548, 407, 97, 30);
+		frame.getContentPane().add(btn_singUP);
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\12.png"));
+		lblNewLabel.setBounds(0, 0, 831, 468);
+		frame.getContentPane().add(lblNewLabel);
+		frame.setBounds(100, 100, 847, 507);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
