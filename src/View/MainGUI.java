@@ -58,7 +58,7 @@ public class MainGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 535);
+		frame.setBounds(100, 100, 1028, 535);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -125,6 +125,16 @@ public class MainGUI {
 		});
 		btn_main_delete.setBounds(12, 253, 410, 73);
 		frame.getContentPane().add(btn_main_delete);
+		
+		JButton button = new JButton("\uACB0\uC81C\uD558\uAE30");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				PayGUI pay = new PayGUI(dto);
+			}
+		});
+		button.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15));
+		button.setBounds(516, 15, 410, 66);
+		frame.getContentPane().add(button);
 	}
 
 	public void loginInfo(MemberDTO dto) {
