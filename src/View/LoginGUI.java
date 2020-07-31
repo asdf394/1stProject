@@ -26,7 +26,6 @@ public class LoginGUI {
 	private JFrame frame;
 	MemberDTO dto;
 	private JTextField tf_id;
-	private JLabel lblNewLabel_1;
 	private JPasswordField pf_pw;
 
 	/**
@@ -60,14 +59,6 @@ public class LoginGUI {
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(null);
 
-		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\\uBB34\uC81C.png"));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 21));
-		lblNewLabel_1.setBounds(178, 44, 467, 60);
-		frame.getContentPane().add(lblNewLabel_1);
-
 		tf_id = new JTextField();
 		tf_id.setForeground(SystemColor.scrollbar);
 		tf_id.setText("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
@@ -84,18 +75,13 @@ public class LoginGUI {
 		frame.getContentPane().add(pf_pw);
 
 		JButton btn_singIn = new JButton("");
-		btn_singIn.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\\uB85C\uADF8\uC778.png"));
+		btn_singIn.setIcon(null);
 		btn_singIn.setBounds(510, 359, 171, 38);
 		frame.getContentPane().add(btn_singIn);
 
 		JButton btn_singUP = new JButton("New button");
 		btn_singUP.setBounds(548, 407, 97, 30);
 		frame.getContentPane().add(btn_singUP);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT039\\Desktop\\12.png"));
-		lblNewLabel.setBounds(0, 0, 831, 468);
-		frame.getContentPane().add(lblNewLabel);
 		frame.setBounds(100, 100, 847, 507);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
