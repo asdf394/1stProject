@@ -83,30 +83,30 @@ public class NewnoticeBoardGUI {
 		JButton bnt_new = new JButton("\uB4F1\uB85D");
 		bnt_new.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(tf_name.getText().trim().length()==0 || tf_name.getText().trim().equals("ì´ë¦„")) {
-					JOptionPane.showMessageDialog(null, "ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.", "ì´ë¦„ ì…ë ¥", JOptionPane.WARNING_MESSAGE);
+				if(tf_name.getText().trim().length()==0 || tf_name.getText().trim().equals("ÀÌ¸§")) {
+					JOptionPane.showMessageDialog(null, "ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.", "ÀÌ¸§ ÀÔ·Â", JOptionPane.WARNING_MESSAGE);
 					tf_name.grabFocus();
 					return;
 				}
-				if(tf_ID.getText().trim().length()==0 || tf_ID.getText().trim().equals("ì•„ì´ë””")) {
-					JOptionPane.showMessageDialog(null, "IDë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”.", "ì•„ì´ë”” ì…ë ¥", JOptionPane.WARNING_MESSAGE);
+				if(tf_ID.getText().trim().length()==0 || tf_ID.getText().trim().equals("¾ÆÀÌµğ")) {
+					JOptionPane.showMessageDialog(null, "ID¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä.", "¾ÆÀÌµğ ÀÔ·Â", JOptionPane.WARNING_MESSAGE);
 					tf_ID.grabFocus();
 					return;
 				}
-				if(tf_content.getText().trim().length()==0 || tf_content.getText().trim().equals("ë‚´ìš©")) {
-					JOptionPane.showMessageDialog(null, "ë‚´ìš©ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.", "ë‚´ìš© ì…ë ¥", JOptionPane.WARNING_MESSAGE);
+				if(tf_content.getText().trim().length()==0 || tf_content.getText().trim().equals("³»¿ë")) {
+					JOptionPane.showMessageDialog(null, "³»¿ëÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.", "³»¿ë ÀÔ·Â", JOptionPane.WARNING_MESSAGE);
 					tf_content.grabFocus();
 					return;
 				}
-				if(tf_title.getText().trim().length()==0 || tf_title.getText().trim().equals("ì œëª©")) {
-					JOptionPane.showMessageDialog(null, "ì œëª©ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”.", "ì œëª© ì…ë ¥", JOptionPane.WARNING_MESSAGE);
+				if(tf_title.getText().trim().length()==0 || tf_title.getText().trim().equals("Á¦¸ñ")) {
+					JOptionPane.showMessageDialog(null, "Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä.", "Á¦¸ñ ÀÔ·Â", JOptionPane.WARNING_MESSAGE);
 					tf_title.grabFocus();
 					return;
 				
 				}else {
-					JOptionPane.showMessageDialog(null, "ë“±ë¡ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤", "ê²Œì‹œë¬¼ ë“±ë¡", JOptionPane.INFORMATION_MESSAGE);
-					frame.dispose(); // ì°½ ë‹«ê¸°
-					noticeBoardGUI borad = new noticeBoardGUI(); // ë©”ì¸ ì°½ ë„ìš°ê¸° ê°ì²´ ìƒì„±
+					JOptionPane.showMessageDialog(null, "µî·ÏÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù", "°Ô½Ã¹° µî·Ï", JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose(); // Ã¢ ´İ±â
+					noticeBoardGUI borad = new noticeBoardGUI(); // ¸ŞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ı¼º
 				}
 				
 				
@@ -128,7 +128,7 @@ public class NewnoticeBoardGUI {
 		JButton bnt_close = new JButton("\uCDE8\uC18C");
 		bnt_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "ë“±ë¡ì„ ì·¨ì†Œí•©ë‹ˆë‹¤", "ê²Œì‹œê¸€ ë“±ë¡", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "µî·ÏÀ» Ãë¼ÒÇÕ´Ï´Ù", "°Ô½Ã±Û µî·Ï", JOptionPane.ERROR_MESSAGE);
 				frame.dispose();
 				noticeBoardGUI NoticeBoradGUI = new noticeBoardGUI();
 			}
