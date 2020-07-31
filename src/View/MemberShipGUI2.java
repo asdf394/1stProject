@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JPasswordField;
+import java.awt.Color;
 
 public class MemberShipGUI2 {
 
@@ -61,7 +62,8 @@ public class MemberShipGUI2 {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 444);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 1027, 630);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

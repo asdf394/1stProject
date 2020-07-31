@@ -158,7 +158,7 @@ public class UpdateGUI {
 			}
 		}
 			);
-		bnt_Ok.setBounds(12, 362, 185, 31);
+		bnt_Ok.setBounds(12, 362, 96, 31);
 		frame.getContentPane().add(bnt_Ok);
 		
 		JButton bnt_refuse = new JButton("\uC218\uC815\uCDE8\uC18C");
@@ -169,7 +169,7 @@ public class UpdateGUI {
 				MainGUI mainGui = new MainGUI(dto); // 皋牢 芒 剁快扁 按眉 积己
 			}
 		});
-		bnt_refuse.setBounds(237, 362, 185, 31);
+		bnt_refuse.setBounds(120, 362, 96, 31);
 		frame.getContentPane().add(bnt_refuse);
 		
 		JLabel lbl_Sale = new JLabel("\uD560\uC778\uC0AC\uD56D");
@@ -184,6 +184,10 @@ public class UpdateGUI {
 		pw_2 = new JPasswordField();
 		pw_2.setBounds(81, 134, 116, 21);
 		frame.getContentPane().add(pw_2);
+		
+		JButton button = new JButton("\uD68C\uC6D0\uD0C8\uD1F4");
+		button.setBounds(240, 362, 96, 31);
+		frame.getContentPane().add(button);
 		
 		
 	}

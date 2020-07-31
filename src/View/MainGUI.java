@@ -12,17 +12,16 @@ import javax.swing.JOptionPane;
 import Model.MemberDAO;
 import Model.MemberDTO;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class MainGUI {
 
 	private JFrame frame;
 	MemberDTO loginDto = null;
-	JButton btn_main_login;
-	JButton btn_main_join;
-	JButton btn_main_delete;
 	JButton btn_main_logout;
 	JButton btn_main_showInfo;
 	JButton btn_main_modify;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -53,7 +52,6 @@ public class MainGUI {
 		btn_main_logout.setVisible(false);
 		btn_main_showInfo.setVisible(false);
 		btn_main_modify.setVisible(false);
-		btn_main_delete.setVisible(false);
 	}
 
 	/**
@@ -61,32 +59,10 @@ public class MainGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1028, 535);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 1028, 630);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		btn_main_login = new JButton("\uB85C\uADF8\uC778");
-		btn_main_login.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // main GUI°¡ ²¨Áø´Ù
-				LoginGUI login = new LoginGUI(dto); // ·Î±×ÀÎ °´Ã¼ »ý¼º
-
-			}
-		});
-		btn_main_login.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15));
-		btn_main_login.setBounds(12, 15, 410, 66);
-		frame.getContentPane().add(btn_main_login);
-
-		btn_main_join = new JButton("\uD68C\uC6D0\uAC00\uC785");
-		btn_main_join.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				MemberShipGUI2 join = new MemberShipGUI2(dto);
-			}
-		});
-		btn_main_join.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15));
-		btn_main_join.setBounds(12, 96, 410, 66);
-		frame.getContentPane().add(btn_main_join);
 
 		btn_main_logout = new JButton("\uB85C\uADF8\uC544\uC6C3");
 		btn_main_logout.addActionListener(new ActionListener() {
@@ -96,7 +72,7 @@ public class MainGUI {
 			}
 		});
 		btn_main_logout.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15));
-		btn_main_logout.setBounds(12, 177, 410, 66);
+		btn_main_logout.setBounds(794, 53, 177, 40);
 		frame.getContentPane().add(btn_main_logout);
 
 		btn_main_showInfo = new JButton("\uD68C\uC6D0\uC815\uBCF4\uBCF4\uAE30");
@@ -119,42 +95,23 @@ public class MainGUI {
 		btn_main_modify.setBounds(12, 336, 410, 66);
 		frame.getContentPane().add(btn_main_modify);
 
-		btn_main_delete = new JButton("\uD68C\uC6D0\uD0C8\uD1F4");
-		btn_main_delete.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				deleteGUI delete = new deleteGUI(dto);
-			}
-		});
-		btn_main_delete.setBounds(12, 253, 410, 73);
-		frame.getContentPane().add(btn_main_delete);
-
-		JButton button = new JButton("\uACB0\uC81C\uD558\uAE30");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				PayGUI pay = new PayGUI(dto);
-			}
-		});
-		button.setFont(new Font("µ¸¿òÃ¼", Font.PLAIN, 15));
-		button.setBounds(516, 15, 410, 66);
-		frame.getContentPane().add(button);
-
-		JButton btnNewButton = new JButton("\uC7A5\uB09C\uAC10 \uB300\uC5EC");
+		JButton btnNewButton = new JButton("\uC7A5\uB09C\uAC10 \uBCF4\uAE30");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				ToyInfoGUI toyinfo = new ToyInfoGUI();
 			}
 		});
-		btnNewButton.setBounds(516, 118, 310, 85);
+		btnNewButton.setBounds(52, 168, 310, 85);
 		frame.getContentPane().add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("\uAC8C\uC2DC\uD310 \uBCF4\uAE30");
+		btnNewButton_1.setBounds(42, 92, 310, 66);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
 	public void loginInfo(MemberDTO dto) {
 		loginDto = dto;
-		btn_main_login.setVisible(false);
-		btn_main_join.setVisible(false);
-		btn_main_delete.setVisible(true);
 		btn_main_logout.setVisible(true);
 		btn_main_modify.setVisible(true);
 

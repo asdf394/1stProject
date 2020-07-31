@@ -27,6 +27,13 @@ public class LoginGUI {
 	MemberDTO dto;
 	private JTextField tf_id;
 	private JPasswordField pf_pw;
+	private JLabel lbl_troy;
+	private JLabel lbl_car;
+	private JLabel lbl_ring;
+	private JLabel lblId;
+	private JLabel lblPw;
+	private JLabel lbl_toy;
+	private JLabel lb_delivery;
 
 	/**
 	 * Launch the application.
@@ -61,28 +68,75 @@ public class LoginGUI {
 
 		tf_id = new JTextField();
 		tf_id.setForeground(SystemColor.scrollbar);
-		tf_id.setText("\uC544\uC774\uB514\uB97C \uC785\uB825\uD558\uC138\uC694");
 		tf_id.setToolTipText("");
 		tf_id.setBackground(new Color(255, 255, 255));
-		tf_id.setBounds(481, 235, 218, 30);
+		tf_id.setBounds(660, 286, 218, 30);
 		frame.getContentPane().add(tf_id);
 		tf_id.setColumns(10);
 
 		pf_pw = new JPasswordField();
 		pf_pw.setToolTipText("");
 		pf_pw.setBackground(new Color(255, 255, 255));
-		pf_pw.setBounds(481, 299, 218, 30);
+		pf_pw.setBounds(660, 348, 218, 30);
 		frame.getContentPane().add(pf_pw);
 
-		JButton btn_singIn = new JButton("");
-		btn_singIn.setIcon(null);
-		btn_singIn.setBounds(510, 359, 171, 38);
-		frame.getContentPane().add(btn_singIn);
+		JButton btn_login = new JButton("LOGIN");
+		btn_login.setFont(new Font("Bahnschrift", Font.BOLD, 15));
+		btn_login.setIcon(null);
+		btn_login.setBounds(660, 398, 103, 30);
+		btn_login.setBackground(new Color(242, 203, 97));
+		frame.getContentPane().add(btn_login);
 
-		JButton btn_singUP = new JButton("New button");
-		btn_singUP.setBounds(548, 407, 97, 30);
-		frame.getContentPane().add(btn_singUP);
-		frame.setBounds(100, 100, 847, 507);
+		JButton btn_join = new JButton("JOIN");
+		btn_join.setFont(new Font("Bahnschrift", Font.BOLD, 15));
+		btn_join.setBounds(769, 398, 109, 30);
+		btn_join.setBackground(new Color(242, 203, 97));
+		frame.getContentPane().add(btn_join);
+
+		String a = this.getClass().getResource("../img/troy.png").getPath();
+		String b = this.getClass().getResource("../img/car.png").getPath();
+		String c = this.getClass().getResource("../img/ring.png").getPath();
+
+		lbl_troy = new JLabel("");
+		lbl_troy.setIcon(new ImageIcon(a));
+		lbl_troy.setBackground(Color.WHITE);
+		lbl_troy.setBounds(44, 31, 469, 529);
+		frame.getContentPane().add(lbl_troy);
+
+		lbl_car = new JLabel("");
+		lbl_car.setIcon(new ImageIcon(b));
+		lbl_car.setBounds(566, 279, 57, 48);
+		frame.getContentPane().add(lbl_car);
+
+		lbl_ring = new JLabel("");
+		lbl_ring.setIcon(new ImageIcon(c));
+		lbl_ring.setBounds(566, 330, 57, 48);
+		frame.getContentPane().add(lbl_ring);
+
+		lblId = new JLabel("ID");
+		lblId.setFont(new Font("Bahnschrift", Font.BOLD, 15));
+		lblId.setHorizontalAlignment(SwingConstants.CENTER);
+		lblId.setBounds(609, 286, 57, 29);
+		frame.getContentPane().add(lblId);
+
+		lblPw = new JLabel("PW");
+		lblPw.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPw.setFont(new Font("Bahnschrift", Font.BOLD, 15));
+		lblPw.setBounds(606, 347, 57, 29);
+		frame.getContentPane().add(lblPw);
+
+		lbl_toy = new JLabel("TOY");
+		lbl_toy.setFont(new Font("Bahnschrift", Font.BOLD, 60));
+		lbl_toy.setBounds(558, 79, 116, 112);
+		lbl_toy.setForeground(new Color(150, 60, 7));
+		frame.getContentPane().add(lbl_toy);
+
+		lb_delivery = new JLabel("DELIVERY");
+		lb_delivery.setFont(new Font("Bahnschrift", Font.BOLD, 60));
+		lb_delivery.setBounds(595, 143, 325, 112);
+		lb_delivery.setForeground(new Color(240, 150, 97));
+		frame.getContentPane().add(lb_delivery);
+		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
