@@ -32,7 +32,7 @@ public class MainGUI {
 			public void run() {
 				try {
 					LoginGUI window = new LoginGUI(null);
-					//MainGUI window = new MainGUI(null);
+					// MainGUI window = new MainGUI(null);
 					// window.frame.setVisible(true); // 닫기 버튼 누르고 다시 메인 창으로 되돌아오려면 주석처리
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +43,9 @@ public class MainGUI {
 
 	/**
 	 * Create the application.
-	 * @param dto 
+	 * 
+	 * @param dto
+	 * @wbp.parser.entryPoint
 	 */
 	public MainGUI(MemberDTO dto) {
 		initialize(dto);
@@ -126,7 +128,7 @@ public class MainGUI {
 		});
 		btn_main_delete.setBounds(12, 253, 410, 73);
 		frame.getContentPane().add(btn_main_delete);
-		
+
 		JButton button = new JButton("\uACB0\uC81C\uD558\uAE30");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -136,6 +138,16 @@ public class MainGUI {
 		button.setFont(new Font("돋움체", Font.PLAIN, 15));
 		button.setBounds(516, 15, 410, 66);
 		frame.getContentPane().add(button);
+
+		JButton btnNewButton = new JButton("\uC7A5\uB09C\uAC10 \uB300\uC5EC");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				ToyInfoGUI toyinfo = new ToyInfoGUI();
+			}
+		});
+		btnNewButton.setBounds(516, 118, 310, 85);
+		frame.getContentPane().add(btnNewButton);
 	}
 
 	public void loginInfo(MemberDTO dto) {
@@ -151,5 +163,4 @@ public class MainGUI {
 		}
 		JOptionPane.showMessageDialog(null, loginDto.getName() + "님 환영합니다.");
 	}
-
 }
