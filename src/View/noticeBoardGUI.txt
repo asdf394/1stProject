@@ -1,0 +1,155 @@
+package View;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.SwingConstants;
+
+import Model.NoticeBoardDAO;
+import Model.NoticeBoardDTO;
+import javax.swing.JTextField;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class noticeBoardGUI {
+
+	private JFrame frame;
+	private JTable table;
+	private JTable table_1;
+	private JTable table_2;
+	private JTable table_3;
+	private JTextField tf_check;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					noticeBoardGUI window = new noticeBoardGUI();
+//					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public noticeBoardGUI() {
+		initialize();
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 811, 635);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		tf_check = new JTextField();
+		tf_check.setBounds(132, 86, 467, 34);
+		frame.getContentPane().add(tf_check);
+		tf_check.setColumns(10);
+		
+		JLabel lbl_notice = new JLabel("\uAC8C\uC2DC\uD310");
+		lbl_notice.setForeground(Color.BLACK);
+		lbl_notice.setFont(new Font("굴림", Font.PLAIN, 20));
+		lbl_notice.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_notice.setBounds(12, 10, 771, 65);
+		frame.getContentPane().add(lbl_notice);
+		
+		JButton btn_make = new JButton("\uAE00 \uC791\uC131");
+		btn_make.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				NewnoticeBoardGUI nba = new NewnoticeBoardGUI(); 
+				
+			}
+		});
+		btn_make.setBounds(125, 563, 97, 23);
+		frame.getContentPane().add(btn_make);
+		
+		JButton btn_close = new JButton("\uB2EB\uAE30");
+		btn_close.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose(); // 창 닫기
+				MainGUI mainGui = new MainGUI(); // 메인 창 띄우기 객체 생성
+			}
+		});
+		btn_close.setBounds(576, 563, 97, 23);
+		frame.getContentPane().add(btn_close);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 146, 771, 407);
+		frame.getContentPane().add(scrollPane);
+			
+		String[] colName = {"NO", "NAME", "ID", "CONTENT", "TITLE"};
+		NoticeBoardDAO dao = new NoticeBoardDAO();
+		ArrayList<NoticeBoardDTO> Toy_boardList = dao.noticeInfoSelect();
+		Object[][] data = new Object[Toy_boardList.size()][5];
+		for(int i=0; i<data.length; i++) {
+			data[i][0] = Toy_boardList.get(i).getNo();
+			data[i][1] = Toy_boardList.get(i).getName();
+			data[i][2] = Toy_boardList.get(i).getID();
+			data[i][3] = Toy_boardList.get(i).getCONTENT();
+			data[i][4] = Toy_boardList.get(i).getTITLE();
+		}
+		
+		table = new JTable(data, colName);
+		scrollPane.setViewportView(table);
+		
+		JButton btn_check = new JButton("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
+		btn_check.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String[] colName = { "NO", "NAME", "ID", "CONTENT", "TITLE"};
+	            NoticeBoardDAO dao = new  NoticeBoardDAO();
+	            ArrayList<NoticeBoardDTO> searchList = dao.search(tf_check.getText());
+	            System.out.println(searchList.get(0).getID()+"이거나오냐?");
+	            Object[][] data = new Object[searchList.size()][5];
+	            for (int i = 0; i < data.length; i++) {
+	               data[i][0] = searchList.get(i).getNo();
+	               data[i][1] = searchList.get(i).getName();
+	               data[i][2] = searchList.get(i).getID();
+	               data[i][3] = searchList.get(i).getCONTENT();
+	               data[i][4] = searchList.get(i).getTITLE();
+	               
+	             
+	            }
+	            
+	            table = new JTable(data, colName);
+	            scrollPane.setViewportView(table);
+	         }
+	      });
+		btn_check.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		
+			}
+		});
+		btn_check.setBounds(611, 85, 108, 35);
+		frame.getContentPane().add(btn_check);
+		
+		JLabel lbl_check = new JLabel("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
+		lbl_check.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_check.setBounds(12, 89, 108, 31);
+		frame.getContentPane().add(lbl_check);
+		
+	
+	}
+}
