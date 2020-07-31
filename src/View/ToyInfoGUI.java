@@ -79,19 +79,24 @@ public class ToyInfoGUI {
 		scrollPane.setBounds(28, 214, 1029, 319);
 		frame.getContentPane().add(scrollPane);
 
-		String[] colName = { "번호", "이름", "영역", "발달정보", "사용연령", "대여여부" };
-		ToyDAO dao = new ToyDAO();
-		ArrayList<ToyDTO> toyList = dao.toyInfo();
-		Object[][] data = new Object[toyList.size()][8];
-		for (int i = 0; i < data.length; i++) {
-			data[i][0] = toyList.get(i).getNo();
-			data[i][1] = toyList.get(i).getName();
-			data[i][2] = toyList.get(i).getDomain();
-			data[i][3] = toyList.get(i).getDevelop();
-			data[i][4] = toyList.get(i).getAge();
-			data[i][5] = toyList.get(i).getRent();
+		  String[] colName = { "번호", "이름", "영역", "발달정보", "사용연령", "대여여부" };
+	      ToyDAO dao = new ToyDAO();
+	      ArrayList<ToyDTO> toyList = dao.toyInfo();
+	      Object[][] data = new Object[toyList.size()][8];
+	      for (int i = 0; i < data.length; i++) {
+	         data[i][0] = toyList.get(i).getNo();
+	         data[i][1] = toyList.get(i).getName();
+	         data[i][2] = toyList.get(i).getDomain();
+	         data[i][3] = toyList.get(i).getDevelop();
+	         data[i][4] = toyList.get(i).getAge();
+	         int rent = toyList.get(i).getRent();
+	         if (rent == 0) {
+	            data[i][5] = "대여 가능";
+	         } else {
+	            data[i][5] = "대여중";
+	         }
 
-		}
+	      }
 
 		DefaultTableModel model = new DefaultTableModel(data, colName) {// 셀클릭시 기본은 셀 편집 상태가 되는 것을 막기위해
 			public boolean isCellEditable(int row, int col) {// DefaultTableModeld의 isCellEditable를 재정의함 (false로)
