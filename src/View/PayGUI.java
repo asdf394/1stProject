@@ -51,7 +51,7 @@ public class PayGUI {
 				try {
 					PayGUI window = new PayGUI(null);
 					
-					window.frame.setVisible(true);
+					//window.frame.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();

@@ -57,7 +57,7 @@ public class MemberInfoGUI {
 		scrollPane.setBounds(12, 54, 410, 347);
 		frame.getContentPane().add(scrollPane);
 
-		String[] colName = { "ID", "PW", "Name", "Address", "PhoneNumber", "Saletarget" };
+		String[] colName = { "아이디", "비밀번호", "이름", "회원주소", "연락처", "할인여부" };
 		MemberDAO dao = new MemberDAO();
 		ArrayList<MemberDTO> memberList = dao.memberInfoSelect();
 		Object[][] data = new Object[memberList.size()][7];

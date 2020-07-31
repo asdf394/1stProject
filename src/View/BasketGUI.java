@@ -9,13 +9,18 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import Model.MemberDTO;
 import Model.ToyDAO;
 import Model.ToyDTO;
 
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BasketGUI {
 
@@ -92,7 +97,13 @@ public class BasketGUI {
 		table.setColumnSelectionAllowed(true);
 		scrollPane.setViewportView(table);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnNewButton = new JButton("\uACB0\uC81C");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				PayGUI pay = new PayGUI(null);
+			}
+		});
 		btnNewButton.setBounds(33, 369, 241, 59);
 		frame.getContentPane().add(btnNewButton);
 		

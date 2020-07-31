@@ -89,6 +89,7 @@ public class PayDAO {
 	}
 
 	public int discountCK(MemberDTO dto) { //할인 여부 판별 , 장애인, 기초수급자 인지 확인
+
 		getConnect();
 		int cnt=0;
 		String sql = "update toy_pay set discount=2 where id = ?";
@@ -104,6 +105,11 @@ public class PayDAO {
 			close();
 		}
 		return cnt;
+		
+	}
+	
+	//결제 됐을때 대여테이블에 추가하기
+	public void addToy() {
 		
 	}
 }

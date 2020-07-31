@@ -50,7 +50,7 @@ public class LoginGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 956, 498);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

@@ -31,7 +31,8 @@ public class MainGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainGUI window = new MainGUI(null);
+					LoginGUI window = new LoginGUI(null);
+					//MainGUI window = new MainGUI(null);
 					// window.frame.setVisible(true); // 닫기 버튼 누르고 다시 메인 창으로 되돌아오려면 주석처리
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -113,7 +114,7 @@ public class MainGUI {
 			}
 		});
 		btn_main_modify.setFont(new Font("돋움체", Font.PLAIN, 15));
-		btn_main_modify.setBounds(12, 339, 410, 66);
+		btn_main_modify.setBounds(12, 336, 410, 66);
 		frame.getContentPane().add(btn_main_modify);
 
 		btn_main_delete = new JButton("\uD68C\uC6D0\uD0C8\uD1F4");
