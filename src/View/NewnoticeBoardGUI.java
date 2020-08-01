@@ -147,7 +147,7 @@ public class NewnoticeBoardGUI {
 		
 		JLabel lb_content = new JLabel("\uB0B4\uC6A9");
 		lb_content.setFont(new Font("±¼¸²", Font.BOLD, 15));
-		lb_content.setBounds(49, 245, 57, 15);
+		lb_content.setBounds(49, 239, 48, 15);
 		
 		panel.add(lb_content);
 		lb_content.setHorizontalAlignment(SwingConstants.CENTER);
@@ -160,12 +160,12 @@ public class NewnoticeBoardGUI {
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_title.setForeground(new Color(233, 113, 113));
 		tf_title = new JTextField();
-		tf_title.setBounds(103, 119, 357, 21);
+		tf_title.setBounds(103, 113, 357, 27);
 		panel.add(tf_title);
 		tf_title.setColumns(10);
 		
 		tf_ID = new JTextField();
-		tf_ID.setBounds(103, 75, 180, 21);
+		tf_ID.setBounds(103, 75, 180, 28);
 		panel.add(tf_ID);
 		tf_ID.setColumns(10);
 		
@@ -184,7 +184,7 @@ public class NewnoticeBoardGUI {
 		lbl_name.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		tf_name = new JTextField();
-		tf_name.setBounds(103, 36, 180, 21);
+		tf_name.setBounds(103, 36, 180, 27);
 		panel.add(tf_name);
 		tf_name.setColumns(10);
 		

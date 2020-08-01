@@ -60,20 +60,22 @@ public class noticeBoardGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 878, 635);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		tf_check = new JTextField();
-		tf_check.setBounds(132, 86, 467, 34);
+		tf_check.setBounds(132, 86, 576, 34);
 		frame.getContentPane().add(tf_check);
 		tf_check.setColumns(10);
 		
-		JLabel lbl_notice = new JLabel("\uAC8C\uC2DC\uD310");
+		JLabel lbl_notice = new JLabel("\uAC8C \uC2DC \uD310");
 		lbl_notice.setForeground(Color.BLACK);
-		lbl_notice.setFont(new Font("±¼¸²", Font.PLAIN, 20));
+		lbl_notice.setForeground(new Color(240, 150, 97));
+		lbl_notice.setFont(new Font("±¼¸²", Font.BOLD, 30));
 		lbl_notice.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_notice.setBounds(12, 10, 771, 65);
+		lbl_notice.setBounds(284, 10, 241, 65);
 		frame.getContentPane().add(lbl_notice);
 		
 		JButton btn_make = new JButton("\uAE00 \uC791\uC131");
@@ -84,7 +86,7 @@ public class noticeBoardGUI {
 				
 			}
 		});
-		btn_make.setBounds(126, 563, 97, 23);
+		btn_make.setBounds(174, 507, 158, 37);
 		frame.getContentPane().add(btn_make);
 		
 		JButton btn_close = new JButton("\uB2EB\uAE30");
@@ -94,11 +96,11 @@ public class noticeBoardGUI {
 				MainGUI mainGui = new MainGUI(null); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 			}
 		});
-		btn_close.setBounds(572, 563, 97, 23);
+		btn_close.setBounds(379, 507, 119, 37);
 		frame.getContentPane().add(btn_close);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 146, 771, 407);
+		scrollPane.setBounds(49, 146, 779, 348);
 		frame.getContentPane().add(scrollPane);
 			
 		String[] colName = {"NO", "ID", "NAME", "TITLE", "CONTENT"};
@@ -174,7 +176,7 @@ public class noticeBoardGUI {
 		
 			}
 		});
-		btn_check.setBounds(611, 85, 108, 35);
+		btn_check.setBounds(720, 85, 108, 35);
 		frame.getContentPane().add(btn_check);
 		
 		JLabel lbl_check = new JLabel("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
