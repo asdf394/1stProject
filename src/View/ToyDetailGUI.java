@@ -65,7 +65,7 @@ public class ToyDetailGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(int num, MemberDTO dto) {
-		System.out.println("≈‰¿Ã µ≈◊¿œ√¢ ID : "+ dto.getId());
+		System.out.println("≈‰¿Ã µ≈◊¿œ√¢ ID : " + dto.getId());
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setForeground(Color.GRAY);
@@ -119,14 +119,20 @@ public class ToyDetailGUI {
 
 		// String domain = getNum().get(0).getDomain();
 		JLabel lb_domain = new JLabel(getNum().get(0).getDomain());
+		lb_domain.setForeground(new Color(233, 113, 113));
+		lb_domain.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		lb_domain.setBounds(616, 201, 256, 19);
 		frame.getContentPane().add(lb_domain);
 
 		JLabel lb_develop = new JLabel(getNum().get(0).getDevelop());
+		lb_develop.setForeground(new Color(233, 113, 113));
+		lb_develop.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		lb_develop.setBounds(616, 266, 256, 19);
 		frame.getContentPane().add(lb_develop);
 
 		JLabel lb_age = new JLabel(getNum().get(0).getAge());
+		lb_age.setForeground(new Color(233, 113, 113));
+		lb_age.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		lb_age.setBounds(616, 335, 256, 19);
 		frame.getContentPane().add(lb_age);
 
@@ -138,19 +144,23 @@ public class ToyDetailGUI {
 			rent1 = "¥Îø© ¡ﬂ";
 		}
 		JLabel lb_rent = new JLabel(rent1);
+		lb_rent.setForeground(new Color(233, 113, 113));
+		lb_rent.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		lb_rent.setBounds(616, 404, 256, 19);
-		
+
 		frame.getContentPane().add(lb_rent);
 
 		JLabel lbl_name = new JLabel("\uC774\uB984");
 		lbl_name.setBackground(new Color(0, 204, 102));
-		lbl_name.setForeground(new Color(240, 97, 97));
+		lbl_name.setForeground(new Color(233, 113, 113));
 		lbl_name.setFont(new Font("±º∏≤", Font.BOLD, 16));
 		lbl_name.setBounds(505, 123, 57, 15);
-		
+
 		frame.getContentPane().add(lbl_name);
 
 		JLabel lb_name = new JLabel(getNum().get(0).getName());
+		lb_name.setForeground(new Color(233, 113, 113));
+		lb_name.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		lb_name.setBounds(616, 124, 256, 15);
 		frame.getContentPane().add(lb_name);
 
@@ -158,14 +168,15 @@ public class ToyDetailGUI {
 		lblNewLabel_2.setIcon(new ImageIcon(getNum().get(0).getImg()));
 		lblNewLabel_2.setBounds(58, 109, 339, 357);
 		frame.getContentPane().add(lblNewLabel_2);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(250, 236, 197));
 		panel.setBounds(37, 94, 815, 386);
 		frame.getContentPane().add(panel);
-		
+
+		String a = this.getClass().getResource("../img/cube.png").getPath();
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\icons8-rubik's-cube-48 (2).png"));
+		lblNewLabel_4.setIcon(new ImageIcon(a));
 		lblNewLabel_4.setBounds(319, 27, 57, 47);
 		frame.getContentPane().add(lblNewLabel_4);
 

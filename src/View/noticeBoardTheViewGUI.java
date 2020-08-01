@@ -169,8 +169,9 @@ public class noticeBoardTheViewGUI {
 		lbl_Nameinfo.setBounds(131, 59, 166, 23);
 		panel.add(lbl_Nameinfo);
 
+		String a = this.getClass().getResource("../img/ball2.png").getPath();
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\ball2.png"));
+		lblNewLabel.setIcon(new ImageIcon(a));
 		lblNewLabel.setBounds(157, 36, 54, 48);
 		frame.getContentPane().add(lblNewLabel);
 

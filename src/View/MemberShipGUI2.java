@@ -39,18 +39,18 @@ public class MemberShipGUI2 {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MemberShipGUI2 window = new MemberShipGUI2(null);
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					MemberShipGUI2 window = new MemberShipGUI2(null);
+//					//window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -242,7 +242,7 @@ public class MemberShipGUI2 {
 		
 		String h = this.getClass().getResource("../img/horse.png").getPath();
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\horse.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(h));
 		lblNewLabel_1.setBounds(105, 21, 57, 36);
 		frame.getContentPane().add(lblNewLabel_1);
 		bnt_refuse.addActionListener(new ActionListener() {
