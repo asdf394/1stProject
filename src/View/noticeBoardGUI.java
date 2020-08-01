@@ -20,6 +20,7 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
 
 public class noticeBoardGUI {
 
@@ -66,7 +67,7 @@ public class noticeBoardGUI {
 		frame.getContentPane().setLayout(null);
 		
 		tf_check = new JTextField();
-		tf_check.setBounds(132, 86, 576, 34);
+		tf_check.setBounds(132, 86, 550, 34);
 		frame.getContentPane().add(tf_check);
 		tf_check.setColumns(10);
 		
@@ -75,10 +76,12 @@ public class noticeBoardGUI {
 		lbl_notice.setForeground(new Color(240, 150, 97));
 		lbl_notice.setFont(new Font("±¼¸²", Font.BOLD, 30));
 		lbl_notice.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_notice.setBounds(284, 10, 241, 65);
+		lbl_notice.setBounds(332, 10, 193, 65);
 		frame.getContentPane().add(lbl_notice);
 		
 		JButton btn_make = new JButton("\uAE00 \uC791\uC131");
+		btn_make.setForeground(Color.WHITE);
+		btn_make.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		btn_make.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -87,20 +90,25 @@ public class noticeBoardGUI {
 			}
 		});
 		btn_make.setBounds(174, 507, 158, 37);
+		btn_make.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btn_make);
 		
 		JButton btn_close = new JButton("\uB2EB\uAE30");
+		btn_close.setForeground(Color.WHITE);
+		btn_close.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose(); // Ã¢ ´Ý±â
 				MainGUI mainGui = new MainGUI(null); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 			}
 		});
-		btn_close.setBounds(379, 507, 119, 37);
+		btn_close.setBounds(484, 507, 158, 37);
+		btn_close.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btn_close);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(49, 146, 779, 348);
+		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
 		frame.getContentPane().add(scrollPane);
 			
 		String[] colName = {"NO", "ID", "NAME", "TITLE", "CONTENT"};
@@ -146,6 +154,9 @@ public class noticeBoardGUI {
 		scrollPane.setViewportView(table);
 		
 		JButton btn_check = new JButton("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
+		btn_check.setForeground(Color.WHITE);
+		btn_check.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		btn_check.setBackground(new Color(240, 150, 97));
 		btn_check.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -176,13 +187,20 @@ public class noticeBoardGUI {
 		
 			}
 		});
-		btn_check.setBounds(720, 85, 108, 35);
+		btn_check.setBounds(694, 85, 134, 35);
 		frame.getContentPane().add(btn_check);
 		
 		JLabel lbl_check = new JLabel("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
+		lbl_check.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_check.setForeground(new Color(233, 113, 113));
 		lbl_check.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_check.setBounds(22, 87, 108, 31);
 		frame.getContentPane().add(lbl_check);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\frog.png"));
+		lblNewLabel.setBounds(296, 10, 56, 66);
+		frame.getContentPane().add(lblNewLabel);
 		
 	
 	}

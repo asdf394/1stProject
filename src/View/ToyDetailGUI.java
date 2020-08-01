@@ -99,7 +99,7 @@ public class ToyDetailGUI {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 25));
 		lblNewLabel_1.setBounds(338, 21, 256, 53);
-		lblNewLabel_1.setForeground(new Color(150, 60, 7));
+		lblNewLabel_1.setForeground(new Color(240, 150, 97));
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JButton btnNewButton = new JButton("\uB2EB\uAE30");
@@ -112,7 +112,7 @@ public class ToyDetailGUI {
 			}
 		});
 		btnNewButton.setBounds(366, 496, 174, 40);
-		btnNewButton.setBackground(new Color(150, 60, 7));
+		btnNewButton.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btnNewButton);
 
 		// String domain = getNum().get(0).getDomain();
