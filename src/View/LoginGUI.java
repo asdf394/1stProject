@@ -83,8 +83,21 @@ public class LoginGUI {
 		JButton btn_login = new JButton("LOGIN");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				MainGUI main = new MainGUI(dto);
+				MemberDAO dao = new MemberDAO();
+				String id = tf_id.getText();
+				String pw = pf_pw.getText();
+				MemberDTO dto = dao.loginSelect(id,pw);
+				if(dto == null) {
+					// 다이얼로그 띄우기
+					// 에러메세지 -> 4개 매개변수
+					// 빌드패스 사용
+					JOptionPane.showMessageDialog(null, "로그인 실패", "로그인", JOptionPane.ERROR_MESSAGE);
+					pf_pw.setText(""); // 비밀번호만 사라진다
+				}else {
+					frame.dispose();
+					MainGUI mainGui = new MainGUI(dto);
+					mainGui.loginInfo(dto);
+				}
 			}
 		});
 		btn_login.setFont(new Font("Bahnschrift", Font.BOLD, 15));

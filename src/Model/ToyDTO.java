@@ -34,6 +34,11 @@ public class ToyDTO {
 		this.explain = explain;
 	}
 
+	public ToyDTO(String name, int no) {
+		this.no = no;
+		this.name = name;
+	}
+
 	public int getNo() {
 		return no;
 	}

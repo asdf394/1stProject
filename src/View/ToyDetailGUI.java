@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import javax.swing.SwingConstants;
 
+import Model.MemberDTO;
 import Model.ToyDAO;
 import Model.ToyDTO;
 
@@ -48,9 +49,9 @@ public class ToyDetailGUI {
 	/**
 	 * Create the application.
 	 */
-	public ToyDetailGUI(int num) {
+	public ToyDetailGUI(int num, MemberDTO dto) {
 		this.num = num;
-		initialize();
+		initialize(num, dto);
 		frame.setVisible(true);
 	}
 
@@ -63,7 +64,8 @@ public class ToyDetailGUI {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(int num, MemberDTO dto) {
+		System.out.println("토이 디테일창 ID : "+ dto.getId());
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setForeground(Color.GRAY);
@@ -108,7 +110,7 @@ public class ToyDetailGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				ToyInfoGUI toyInfoGUI = new ToyInfoGUI();
+				ToyInfoGUI toyInfoGUI = new ToyInfoGUI(dto);
 			}
 		});
 		btnNewButton.setBounds(366, 496, 174, 40);

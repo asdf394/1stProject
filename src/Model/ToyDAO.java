@@ -184,6 +184,7 @@ public class ToyDAO {
 			psmt.setString(1, memDTO.getId());
 			System.out.println("장바구니 담을 경우 아이디 출력" + memDTO.getId());
 			psmt.setInt(2, Tdto.getNo());
+			System.out.println("장바구니 담을 경우 장난감 번호 출력 : "+  Tdto.getNo());
 
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {

@@ -55,6 +55,7 @@ public class PayDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
+			System.out.println("payCal 함수 아이디 받아오기 : "+ dto.getId());
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				result = rs.getInt(1);
@@ -194,4 +195,32 @@ public class PayDAO {
 		return toyN;
 	}
 
+	// 결제 됐을때 결제 테이블에 추가
+	public int insertPay(String id, int discount, int place, int year, int toy_no) {
+		int cnt = 0;
+
+		getConnect();
+
+		String sql = "insert into toy_pay(no,id,discount,place,pay_year,toy_no) values(PAY_SEQ.NEXTVAL,?,?,?,?,?)";
+		try {
+			// 1.ID, 2.장난감 번호
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setInt(2, discount);
+			psmt.setInt(3, place);
+			psmt.setInt(4, year);
+			psmt.setInt(5, toy_no);
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return cnt;
+
+	}
 }

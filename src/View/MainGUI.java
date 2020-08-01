@@ -20,7 +20,7 @@ import Model.MemberDTO;
 public class MainGUI {
 
 	private JFrame frame;
-	MemberDTO loginDto = null;
+	static MemberDTO loginDto = null;
 	JButton btn_main_logout;
 	JButton btn_main_showInfo;
 	JButton btn_main_modify;
@@ -35,7 +35,7 @@ public class MainGUI {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginGUI window = new LoginGUI(null);
+					LoginGUI window = new LoginGUI(loginDto);
 					// MainGUI window = new MainGUI(null);
 					// window.frame.setVisible(true); // 닫기 버튼 누르고 다시 메인 창으로 되돌아오려면 주석처리
 				} catch (Exception e) {
@@ -63,6 +63,12 @@ public class MainGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO dto) {
+		if(dto == null) {
+			System.out.println("로그인 안됨");
+		}else {
+			System.out.println("메인창 ID : "+ dto.getId());
+		}
+
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("굴림", Font.BOLD, 12));
 		frame.getContentPane().setBackground(Color.WHITE);
@@ -119,7 +125,7 @@ public class MainGUI {
 		btn_showtoy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				ToyInfoGUI toyinfo = new ToyInfoGUI();
+				ToyInfoGUI toyinfo = new ToyInfoGUI(dto);
 			}
 		});
 		

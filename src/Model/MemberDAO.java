@@ -181,4 +181,24 @@ public class MemberDAO {
 		return cnt;
 	}
 
+	public ArrayList<ToyDTO> memRentToy(Object value) { // 회원 대여장난감 번호, 이름 가져오기
+		ArrayList<ToyDTO> toyList = new ArrayList<ToyDTO>();
+		getConnect();
+		String sql = "select no, name from toy where no in (select toy_no from toy_pay where id like ?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setObject(1, value);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				int no = rs.getInt(1);
+				String name = rs.getString(2);
+				toyList.add(new ToyDTO(name, no));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return toyList;
+	}
 }

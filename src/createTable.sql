@@ -6,6 +6,10 @@ drop table toy_member CASCADE CONSTRAINTS;
 drop table toy_pay CASCADE CONSTRAINTS;
 drop table toy_rental CASCADE CONSTRAINTS;
 drop SEQUENCE TOY_BOARD_SEQ;
+drop SEQUENCE BASKET_SEQ;
+select * from toy_basket;
+
+insert into toy_basket values(BASKET_SEQ.NEXTVAL,4,5)
 
 CREATE SEQUENCE TOY_SEQ --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
@@ -19,9 +23,18 @@ START WITH 1 --시작숫자 1
 MINVALUE 1 --최소값 1
 NOCYCLE --순한하지않음
 
+CREATE SEQUENCE BASKET_SEQ --시퀀스이름 TOY_SEQ
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+NOCYCLE --순한하지않음
+
+
 select * from toy;
+select * from toy_pay;
 select * from toy_board;
 insert into toy(name,domain,develop,age,rent,img) values()
+select SALETARGET from TOY_MEMBER where id like 'a';
 
 --------------------------------------------------------
 --  DDL for Table TOY
