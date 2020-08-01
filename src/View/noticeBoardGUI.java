@@ -60,7 +60,7 @@ public class noticeBoardGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 811, 635);
+		frame.setBounds(100, 100, 878, 635);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		

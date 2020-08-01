@@ -15,6 +15,8 @@ import Model.MemberDTO;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import javax.swing.JPanel;
 
 public class deleteGUI {
 
@@ -51,22 +53,26 @@ public class deleteGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("\uD68C\uC6D0\uD0C8\uD1F4");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel.setBounds(179, 24, 84, 24);
+		JLabel lblNewLabel = new JLabel("\uD68C \uC6D0 \uD0C8 \uD1F4");
+		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 20));
+		lblNewLabel.setForeground(new Color(240, 150, 97));
+		lblNewLabel.setBounds(170, 10, 133, 24);
 		frame.getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("ID");
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(new Color(233, 113, 113));
 		lblNewLabel_1.setBounds(54, 75, 57, 15);
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JLabel lblPw = new JLabel("PW");
-		lblPw.setFont(new Font("±¼¸²", Font.BOLD | Font.ITALIC, 20));
+		lblPw.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lblPw.setForeground(new Color(233, 113, 113));
 		lblPw.setBounds(54, 124, 57, 15);
 		frame.getContentPane().add(lblPw);
 
@@ -116,5 +122,10 @@ public class deleteGUI {
 		});
 		button.setBounds(230, 201, 97, 23);
 		frame.getContentPane().add(button);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 51, 410, 137);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
 	}
 }

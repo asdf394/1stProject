@@ -71,7 +71,7 @@ public class MemberShipGUI2 {
 		frame.getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(12, 77, 480, 418);
+		panel.setBounds(12, 77, 480, 405);
 		panel.setBackground(new Color(250, 236, 197));
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -222,23 +222,23 @@ public class MemberShipGUI2 {
 		lbl_Member.setBounds(186, 21, 164, 35);
 		frame.getContentPane().add(lbl_Member);
 		lbl_Member.setFont(new Font("±¼¸²", Font.BOLD, 30));
-		lbl_Member.setForeground(new Color(183, 22, 0));
+		lbl_Member.setForeground(new Color(240, 150, 97));
 		lbl_Member.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton bnt_Ok = new JButton("\uAC00\uC785\uC644\uB8CC");
-		bnt_Ok.setBounds(73, 520, 164, 31);
+		bnt_Ok.setBounds(74, 505, 164, 31);
 		frame.getContentPane().add(bnt_Ok);
 		bnt_Ok.setFont(new Font("±¼¸²", Font.BOLD, 15));
-		bnt_Ok.setForeground(Color.black);
-		bnt_Ok.setBackground(new Color(242, 203, 97));
+		bnt_Ok.setForeground(Color.white);
+		bnt_Ok.setBackground(new Color(240, 150, 97));
 		
 		JButton bnt_refuse = new JButton("\uAC00\uC785\uCDE8\uC18C");
-		bnt_refuse.setBounds(261, 520, 164, 31);
+		bnt_refuse.setBounds(262, 505, 164, 31);
 		frame.getContentPane().add(bnt_refuse);
 		bnt_refuse.setFont(new Font("±¼¸²", Font.BOLD, 15));
-		bnt_refuse.setForeground(Color.black);
+		bnt_refuse.setForeground(Color.white);
 		bnt_refuse.setBackground(new Color(250, 236, 197));
-		bnt_refuse.setBackground(new Color(242, 203, 97));
+		bnt_refuse.setBackground(new Color(240, 150, 97));
 		
 		String h = this.getClass().getResource("../img/horse.png").getPath();
 		JLabel lblNewLabel_1 = new JLabel("");

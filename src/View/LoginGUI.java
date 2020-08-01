@@ -89,8 +89,8 @@ public class LoginGUI {
 		btn_login.setFont(new Font("Bahnschrift", Font.BOLD, 15));
 		btn_login.setIcon(null);
 		btn_login.setBounds(580, 398, 103, 30);
-		btn_login.setBackground(new Color(242, 203, 97));
-		btn_login.setForeground(Color.black);
+		btn_login.setBackground(new Color(240, 150, 97));
+		btn_login.setForeground(Color.white);
 		frame.getContentPane().add(btn_login);
 
 		JButton btn_join = new JButton("JOIN");
@@ -99,8 +99,8 @@ public class LoginGUI {
 			}
 		});
 		btn_join.setFont(new Font("Bahnschrift", Font.BOLD, 15));
-		btn_join.setBackground(new Color(242, 203, 97));
-		btn_join.setForeground(Color.black);
+		btn_join.setBackground(new Color(240, 150, 97));
+		btn_join.setForeground(Color.white);
 		btn_join.setBounds(689, 398, 109, 30);
 		
 		frame.getContentPane().add(btn_join);

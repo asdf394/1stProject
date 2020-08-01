@@ -18,6 +18,10 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class NewnoticeBoardGUI {
 
@@ -56,31 +60,14 @@ public class NewnoticeBoardGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 524, 517);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 519, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lbl_title = new JLabel("\uC81C\uBAA9");
-		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_title.setBounds(12, 149, 57, 15);
-		frame.getContentPane().add(lbl_title);
-		
-		tf_title = new JTextField();
-		tf_title.setBounds(81, 146, 357, 21);
-		frame.getContentPane().add(tf_title);
-		tf_title.setColumns(10);
-		
-		JLabel lb_content = new JLabel("\uB0B4\uC6A9");
-		lb_content.setHorizontalAlignment(SwingConstants.CENTER);
-		lb_content.setBounds(12, 271, 57, 15);
-		frame.getContentPane().add(lb_content);
-		
-		tf_content = new JTextField();
-		tf_content.setBounds(81, 177, 357, 229);
-		frame.getContentPane().add(tf_content);
-		tf_content.setColumns(10);
-		
 		JButton bnt_new = new JButton("\uB4F1\uB85D");
+		bnt_new.setForeground(Color.WHITE);
+		bnt_new.setFont(new Font("±º∏≤", Font.BOLD, 15));
 		bnt_new.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tf_name.getText().trim().length()==0 || tf_name.getText().trim().equals("¿Ã∏ß")) {
@@ -122,10 +109,13 @@ public class NewnoticeBoardGUI {
 				
 			}
 		});
-		bnt_new.setBounds(104, 427, 97, 23);
+		bnt_new.setBounds(105, 505, 124, 35);
+		bnt_new.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(bnt_new);
 		
 		JButton bnt_close = new JButton("\uCDE8\uC18C");
+		bnt_close.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		bnt_close.setForeground(Color.WHITE);
 		bnt_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "µÓ∑œ¿ª √Îº“«’¥œ¥Ÿ", "∞‘Ω√±€ µÓ∑œ", JOptionPane.ERROR_MESSAGE);
@@ -133,32 +123,99 @@ public class NewnoticeBoardGUI {
 				noticeBoardGUI NoticeBoradGUI = new noticeBoardGUI();
 			}
 		});
-		bnt_close.setBounds(305, 427, 97, 23);
+		bnt_close.setBounds(267, 505, 124, 35);
+		bnt_close.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(bnt_close);
 		
 		JLabel lbl_Bigname = new JLabel("\uAE00\uC4F0\uAE30");
+		lbl_Bigname.setFont(new Font("±º∏≤", Font.BOLD, 30));
 		lbl_Bigname.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Bigname.setBounds(12, 10, 484, 46);
+		lbl_Bigname.setBounds(205, 25, 111, 46);
+		lbl_Bigname.setForeground(new Color(240, 150, 97));
 		frame.getContentPane().add(lbl_Bigname);
 		
-		JLabel lbl_ID = new JLabel("ID");
-		lbl_ID.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_ID.setBounds(12, 105, 57, 15);
-		frame.getContentPane().add(lbl_ID);
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 81, 479, 414);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		JLabel lbl_name = new JLabel("\uC774\uB984");
-		lbl_name.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_name.setBounds(12, 66, 57, 15);
-		frame.getContentPane().add(lbl_name);
+		tf_content = new JTextField();
+		tf_content.setBounds(103, 150, 357, 229);
+		panel.add(tf_content);
+		tf_content.setColumns(10);
 		
-		tf_name = new JTextField();
-		tf_name.setColumns(10);
-		tf_name.setBounds(81, 63, 180, 21);
-		frame.getContentPane().add(tf_name);
+		JLabel lb_content = new JLabel("\uB0B4\uC6A9");
+		lb_content.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lb_content.setBounds(49, 245, 57, 15);
+		
+		panel.add(lb_content);
+		lb_content.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_content.setForeground(new Color(233, 113, 113));
+		JLabel lbl_title = new JLabel("\uC81C\uBAA9");
+		lbl_title.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_title.setBounds(49, 123, 42, 15);
+		
+		panel.add(lbl_title);
+		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_title.setForeground(new Color(233, 113, 113));
+		tf_title = new JTextField();
+		tf_title.setBounds(103, 119, 357, 21);
+		panel.add(tf_title);
+		tf_title.setColumns(10);
 		
 		tf_ID = new JTextField();
+		tf_ID.setBounds(103, 75, 180, 21);
+		panel.add(tf_ID);
 		tf_ID.setColumns(10);
-		tf_ID.setBounds(81, 102, 180, 21);
-		frame.getContentPane().add(tf_ID);
+		
+		JLabel lbl_ID = new JLabel("I D");
+		lbl_ID.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_ID.setBounds(49, 79, 31, 15);
+		lbl_ID.setForeground(new Color(233, 113, 113));
+		panel.add(lbl_ID);
+		lbl_ID.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JLabel lbl_name = new JLabel("\uC774\uB984");
+		lbl_name.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_name.setBounds(49, 40, 42, 15);
+		lbl_name.setForeground(new Color(233, 113, 113));
+		panel.add(lbl_name);
+		lbl_name.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		tf_name = new JTextField();
+		tf_name.setBounds(103, 36, 180, 21);
+		panel.add(tf_name);
+		tf_name.setColumns(10);
+		
+		String b = this.getClass().getResource("../img/tomato.png").getPath();
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(b));
+		lblNewLabel_1.setBounds(21, 34, 16, 21);
+		panel.add(lblNewLabel_1);
+		
+		String c = this.getClass().getResource("../img/tomato.png").getPath();
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(c));
+		label.setBounds(21, 75, 16, 21);
+		panel.add(label);
+		
+		String d = this.getClass().getResource("../img/tomato.png").getPath();
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(d));
+		label_1.setBounds(21, 117, 16, 21);
+		panel.add(label_1);
+		
+		String e = this.getClass().getResource("../img/tomato.png").getPath();
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(e));
+		label_2.setBounds(21, 239, 16, 21);
+		panel.add(label_2);
+		
+		String a = this.getClass().getResource("../img/write.png").getPath();
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(a));
+		lblNewLabel.setBounds(144, 10, 64, 64);
+		frame.getContentPane().add(lblNewLabel);
 	}
 }

@@ -161,7 +161,7 @@ public class MainGUI {
 		
 		
 		lblToyDelivery = new JLabel("TOY DELIVERY");
-		lblToyDelivery.setForeground(new Color(150, 60, 7));
+		lblToyDelivery.setForeground(new Color(240, 150, 97));
 		lblToyDelivery.setFont(new Font("Bahnschrift", Font.BOLD, 40));
 		lblToyDelivery.setBounds(294, 24, 291, 66);
 		frame.getContentPane().add(lblToyDelivery);
