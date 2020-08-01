@@ -83,6 +83,7 @@ public class LoginGUI {
 		JButton btn_login = new JButton("LOGIN");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MainGUI main = new MainGUI(dto);
 			}
 		});
 		btn_login.setFont(new Font("Bahnschrift", Font.BOLD, 15));

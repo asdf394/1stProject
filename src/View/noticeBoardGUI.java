@@ -15,9 +15,6 @@ import javax.swing.table.DefaultTableModel;
 
 import Model.NoticeBoardDAO;
 import Model.NoticeBoardDTO;
-import Model.noticeBoardTheViewDAO;
-import Model.noticeBoardTheViewDTO;
-
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Color;
@@ -32,23 +29,23 @@ public class noticeBoardGUI {
 	private JTable table_2;
 	private JTable table_3;
 	private JTextField tf_check;
-	protected int view;
+	int num;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					noticeBoardGUI window = new noticeBoardGUI();
-//					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					noticeBoardGUI window = new noticeBoardGUI();
+////					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the application.
@@ -63,27 +60,23 @@ public class noticeBoardGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 900, 600);
+		frame.setBounds(100, 100, 811, 635);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		tf_check = new JTextField();
-		tf_check.setBounds(175, 86, 519, 34);
+		tf_check.setBounds(132, 86, 467, 34);
 		frame.getContentPane().add(tf_check);
 		tf_check.setColumns(10);
 		
-		JLabel lbl_notice = new JLabel("\uAC8C \uC2DC \uD310");
+		JLabel lbl_notice = new JLabel("\uAC8C\uC2DC\uD310");
 		lbl_notice.setForeground(Color.BLACK);
-		lbl_notice.setFont(new Font("±¼¸²", Font.BOLD, 30));
-		lbl_notice.setForeground(new Color(150, 60, 7));
+		lbl_notice.setFont(new Font("±¼¸²", Font.PLAIN, 20));
 		lbl_notice.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_notice.setBounds(310, 10, 267, 65);
+		lbl_notice.setBounds(12, 10, 771, 65);
 		frame.getContentPane().add(lbl_notice);
 		
-		JButton btn_make = new JButton("\uAE00\uC4F0\uAE30");
-		btn_make.setForeground(Color.WHITE);
-		btn_make.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		JButton btn_make = new JButton("\uAE00 \uC791\uC131");
 		btn_make.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -91,38 +84,33 @@ public class noticeBoardGUI {
 				
 			}
 		});
-		btn_make.setBounds(212, 509, 120, 34);
-		btn_make.setBackground(new Color(242, 203, 97));
+		btn_make.setBounds(126, 563, 97, 23);
 		frame.getContentPane().add(btn_make);
 		
 		JButton btn_close = new JButton("\uB2EB\uAE30");
-		btn_close.setForeground(Color.WHITE);
-		btn_close.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose(); // Ã¢ ´Ý±â
 				MainGUI mainGui = new MainGUI(null); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 			}
 		});
-		btn_close.setBounds(457, 509, 120, 34);
-		btn_close.setBackground(new Color(242, 203, 97));
+		btn_close.setBounds(572, 563, 97, 23);
 		frame.getContentPane().add(btn_close);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
-		scrollPane.setBounds(55, 146, 771, 348);
+		scrollPane.setBounds(12, 146, 771, 407);
 		frame.getContentPane().add(scrollPane);
 			
-		String[] colName = {"NO", "NAME", "ID", "CONTENT", "TITLE"};
+		String[] colName = {"NO", "ID", "NAME", "TITLE", "CONTENT"};
 		NoticeBoardDAO dao = new NoticeBoardDAO();
 		ArrayList<NoticeBoardDTO> Toy_boardList = dao.noticeInfoSelect();
 		Object[][] data = new Object[Toy_boardList.size()][5];
 		for(int i=0; i<data.length; i++) {
 			data[i][0] = Toy_boardList.get(i).getNo();
-			data[i][1] = Toy_boardList.get(i).getName();
-			data[i][2] = Toy_boardList.get(i).getID();
-			data[i][3] = Toy_boardList.get(i).getCONTENT();
-			data[i][4] = Toy_boardList.get(i).getTITLE();
+			data[i][1] = Toy_boardList.get(i).getID();
+			data[i][2] = Toy_boardList.get(i).getName();
+			data[i][3] = Toy_boardList.get(i).getTITLE();
+			data[i][4] = Toy_boardList.get(i).getCONTENT();
 		}
 		DefaultTableModel model = new DefaultTableModel(data, colName) {//¼¿Å¬¸¯½Ã ±âº»Àº ¼¿ ÆíÁý »óÅÂ°¡ µÇ´Â °ÍÀ» ¸·±âÀ§ÇØ
 	         public boolean isCellEditable(int row, int col) {//DefaultTableModeldÀÇ isCellEditable¸¦ ÀçÁ¤ÀÇÇÔ (false·Î)
@@ -131,46 +119,52 @@ public class noticeBoardGUI {
 	      };
 	      
 	    table = new JTable(model);
+	    
 	    table.addMouseListener(new MouseAdapter() {
 	    	@Override
 	         public void mouseClicked(MouseEvent e) {
 	            if (e.getClickCount() == 2) {
-	               ArrayList<noticeBoardTheViewDTO> TheView = new ArrayList<noticeBoardTheViewDTO>();
-	               noticeBoardTheViewDAO dao = new noticeBoardTheViewDAO();
+	               ArrayList<NoticeBoardDTO> TheView = new ArrayList<NoticeBoardDTO>();
+	               NoticeBoardDAO dao = new NoticeBoardDAO();
 	               int row = table.getSelectedRow();
-	               view = (int) table.getValueAt(row, 0);
+	               num = (int) table.getValueAt(row, 0);
+	               
 
 	               System.out.println(TheView.toString());
-	           	frame.dispose();
-	           	noticeBoardTheViewGUI nba = new noticeBoardTheViewGUI();
+	               frame.dispose();
+	               noticeBoardTheViewGUI nba = new noticeBoardTheViewGUI(num);
+	               
 	            }
-	         }
+
+	            }
+	         
 
 	      });
+
 		scrollPane.setViewportView(table);
 		
 		JButton btn_check = new JButton("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
-		btn_check.setForeground(Color.WHITE);
-		btn_check.setFont(new Font("±¼¸²", Font.BOLD, 15));
-		btn_check.setBackground(new Color(242, 203, 97));
 		btn_check.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String[] colName = { "NO", "NAME", "ID", "CONTENT", "TITLE"};
+				String[] colName = { "NO", "ID", "NAME", "TITLE", "CONTENT"};
 	            NoticeBoardDAO dao = new  NoticeBoardDAO();
 	            ArrayList<NoticeBoardDTO> searchList = dao.search(tf_check.getText());
-	            System.out.println(searchList.get(0).getID()+"ÀÌ°Å³ª¿À³Ä?");
+	            System.out.println(searchList.get(0).getID());
 	            Object[][] data = new Object[searchList.size()][5];
-	            for (int i = 0; i < data.length; i++) {
-	               data[i][0] = searchList.get(i).getNo();
-	               data[i][1] = searchList.get(i).getName();
-	               data[i][2] = searchList.get(i).getID();
-	               data[i][3] = searchList.get(i).getCONTENT();
-	               data[i][4] = searchList.get(i).getTITLE();
-	               
-	             
+	            if(searchList.size() != 0) {
+	            	
+	            	for (int i = 0; i < data.length; i++) {
+	            		data[i][0] = searchList.get(i).getNo();
+	            		data[i][1] = searchList.get(i).getID();
+	            		data[i][2] = searchList.get(i).getName();
+	            		data[i][3] = searchList.get(i).getTITLE();
+	            		data[i][4] = searchList.get(i).getCONTENT();
+	            		
+	            		
+	            	}
+	            	
 	            }
-	            
 	            table = new JTable(data, colName);
 	            scrollPane.setViewportView(table);
 	         }
@@ -180,15 +174,12 @@ public class noticeBoardGUI {
 		
 			}
 		});
-		btn_check.setBounds(706, 85, 120, 35);
+		btn_check.setBounds(611, 85, 108, 35);
 		frame.getContentPane().add(btn_check);
 		
 		JLabel lbl_check = new JLabel("\uAC8C\uC2DC\uAE00 \uC870\uD68C");
-		lbl_check.setFont(new Font("±¼¸²", Font.BOLD, 15));
-		lbl_check.setForeground(new Color(150, 60, 7));
-		
 		lbl_check.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_check.setBounds(55, 87, 120, 31);
+		lbl_check.setBounds(22, 87, 108, 31);
 		frame.getContentPane().add(lbl_check);
 		
 	
