@@ -20,6 +20,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.ButtonGroup;
 import javax.swing.JPasswordField;
 import java.awt.Color;
+import javax.swing.JPanel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class MemberShipGUI2 {
 
@@ -36,18 +39,18 @@ public class MemberShipGUI2 {
 	/**
 	 * Launch the application.
 	 */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MemberShipGUI2 window = new MemberShipGUI2(dto);
-//					//window.frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MemberShipGUI2 window = new MemberShipGUI2(null);
+					//window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -63,81 +66,192 @@ public class MemberShipGUI2 {
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
-		frame.setBounds(100, 100, 1027, 630);
+		frame.setBounds(100, 100, 520, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lbl_Member = new JLabel("\uD68C \uC6D0 \uAC00 \uC785");
-		lbl_Member.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Member.setBounds(12, 20, 410, 31);
-		frame.getContentPane().add(lbl_Member);
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 77, 480, 418);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 		
-		JLabel lbl_Name = new JLabel("\uC774 \uB984");
-		lbl_Name.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Name.setBounds(12, 165, 57, 15);
-		frame.getContentPane().add(lbl_Name);
-		
-		tf_Name = new JTextField();
-		tf_Name.setBounds(81, 162, 96, 21);
-		frame.getContentPane().add(tf_Name);
-		tf_Name.setColumns(10);
-		
-		JLabel lbl_Id = new JLabel("Id");
-		lbl_Id.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Id.setBounds(12, 75, 57, 15);
-		frame.getContentPane().add(lbl_Id);
-		
-		tf_Id = new JTextField();
-		tf_Id.setBounds(81, 72, 116, 21);
-		frame.getContentPane().add(tf_Id);
-		tf_Id.setColumns(10);
-		
-		JLabel lbl_Pw = new JLabel("Password");
-		lbl_Pw.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Pw.setBounds(12, 106, 63, 15);
-		frame.getContentPane().add(lbl_Pw);
-		
-		JLabel lbl_RePw = new JLabel("\uC7AC\uC785\uB825");
-		lbl_RePw.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_RePw.setBounds(12, 137, 63, 15);
-		frame.getContentPane().add(lbl_RePw);
-		
-		JLabel lbl_Phone = new JLabel("\uD578\uB4DC\uD3F0\uBC88\uD638");
-		lbl_Phone.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Phone.setBounds(12, 268, 71, 15);
-		frame.getContentPane().add(lbl_Phone);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"010", "011"}));
-		comboBox.setBounds(81, 265, 86, 21);
-		frame.getContentPane().add(comboBox);
-		
-		tf_Phone = new JTextField();
-		tf_Phone.setColumns(10);
-		tf_Phone.setBounds(179, 265, 161, 21);
-		frame.getContentPane().add(tf_Phone);
-		
-		JLabel lbl_Address = new JLabel("\uC8FC\uC18C");
+		JLabel lbl_Address = new JLabel("\uC8FC \uC18C");
+		lbl_Address.setBounds(49, 212, 57, 15);
+		lbl_Address.setForeground(new Color(233, 113, 113));
+		panel.add(lbl_Address);
+		lbl_Address.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		lbl_Address.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Address.setBounds(12, 200, 63, 15);
-		frame.getContentPane().add(lbl_Address);
 		
 		tf_Address = new JTextField();
+		tf_Address.setBounds(136, 209, 260, 21);
+		panel.add(tf_Address);
 		tf_Address.setColumns(10);
-		tf_Address.setBounds(81, 196, 259, 21);
-		frame.getContentPane().add(tf_Address);
+		
+		JLabel lbl_Name = new JLabel("\uC774 \uB984");
+		lbl_Name.setBounds(49, 170, 57, 15);
+		lbl_Name.setForeground(new Color(233, 113, 113));
+		panel.add(lbl_Name);
+		lbl_Name.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Name.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		tf_Name = new JTextField();
+		tf_Name.setBounds(136, 167, 260, 21);
+		panel.add(tf_Name);
+		tf_Name.setColumns(10);
+		
+		JLabel lbl_RePw = new JLabel("\uC7AC\uC785\uB825");
+		lbl_RePw.setBounds(49, 128, 63, 15);
+		panel.add(lbl_RePw);
+		lbl_RePw.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_RePw.setForeground(new Color(233, 113, 113));
+		lbl_RePw.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		pw_2 = new JPasswordField();
+		pw_2.setBounds(136, 125, 260, 21);
+		panel.add(pw_2);
+		
+		JLabel lbl_Pw = new JLabel("P W");
+		lbl_Pw.setBounds(49, 86, 57, 15);
+		panel.add(lbl_Pw);
+		lbl_Pw.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Pw.setForeground(new Color(233, 113, 113));
+		lbl_Pw.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		pw_1 = new JPasswordField();
+		pw_1.setBounds(136, 83, 260, 21);
+		panel.add(pw_1);
+		
+		JLabel lbl_Phone = new JLabel("\uD734\uB300\uD3F0\uBC88\uD638");
+		lbl_Phone.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Phone.setBounds(52, 263, 83, 15);
+		lbl_Phone.setForeground(new Color(233, 113, 113));
+		panel.add(lbl_Phone);
+		lbl_Phone.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(250, 236, 197));
+		comboBox.setBounds(136, 257, 60, 21);
+		panel.add(comboBox);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"010", "011"}));
+		
+		tf_Phone = new JTextField();
+		tf_Phone.setBounds(208, 257, 188, 21);
+		panel.add(tf_Phone);
+		tf_Phone.setColumns(10);
 		
 		JRadioButton rb_No = new JRadioButton("\uD574\uB2F9\uC5C6\uC74C");
+		rb_No.setForeground(Color.DARK_GRAY);
+		rb_No.setBackground(new Color(250, 236, 197));
+		rb_No.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		rb_No.setBounds(136, 305, 90, 23);
+		panel.add(rb_No);
 		buttonGroup.add(rb_No);
-		rb_No.setBounds(76, 309, 80, 23);
-		frame.getContentPane().add(rb_No);
 		
 		JRadioButton rb_disabled = new JRadioButton("\uC7A5\uC560\uC778, \uAE30\uCD08\uC218\uAE09\uC790");
+		rb_disabled.setForeground(Color.DARK_GRAY);
+		rb_disabled.setBackground(new Color(250, 236, 197));
+		rb_disabled.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		rb_disabled.setBounds(232, 305, 164, 23);
+		panel.add(rb_disabled);
 		buttonGroup.add(rb_disabled);
-		rb_disabled.setBounds(160, 309, 143, 23);
-		frame.getContentPane().add(rb_disabled);
+		
+		JLabel lbl_Sale = new JLabel("\uD560\uC778\uC0AC\uD56D");
+		lbl_Sale.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Sale.setForeground(new Color(233, 113, 113));
+		lbl_Sale.setBounds(49, 309, 71, 15);
+		
+		panel.add(lbl_Sale);
+		lbl_Sale.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		String a = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(a));
+		lblNewLabel.setBounds(30, 37, 16, 21);
+		panel.add(lblNewLabel);
+		
+		JLabel lbl_Id = new JLabel("I D");
+		lbl_Id.setBounds(49, 37, 57, 15);
+		panel.add(lbl_Id);
+		lbl_Id.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Id.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Id.setForeground(new Color(233, 113, 113));
+		
+		tf_Id = new JTextField();
+		tf_Id.setBounds(136, 37, 261, 21);
+		panel.add(tf_Id);
+		tf_Id.setColumns(10);
+		
+		String b = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(b));
+		label.setBounds(30, 83, 16, 21);
+		panel.add(label);
+		
+		String c = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(c));
+		label_1.setBounds(30, 167, 16, 21);
+		panel.add(label_1);
+		
+		String d = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(d));
+		label_2.setBounds(30, 125, 16, 21);
+		panel.add(label_2);
+		
+		String e = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(e));
+		label_3.setBounds(30, 210, 16, 21);
+		panel.add(label_3);
+		
+		String f = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(f));
+		label_4.setBounds(30, 260, 16, 21);
+		panel.add(label_4);
+		
+		String g = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_5 = new JLabel("");
+		label_5.setIcon(new ImageIcon(g));
+		label_5.setBounds(30, 305, 16, 21);
+		panel.add(label_5);
+		
+		JLabel lbl_Member = new JLabel("\uD68C \uC6D0 \uAC00 \uC785");
+		lbl_Member.setBounds(186, 21, 164, 35);
+		frame.getContentPane().add(lbl_Member);
+		lbl_Member.setFont(new Font("±¼¸²", Font.BOLD, 30));
+		lbl_Member.setForeground(new Color(183, 22, 0));
+		lbl_Member.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton bnt_Ok = new JButton("\uAC00\uC785\uC644\uB8CC");
+		bnt_Ok.setBounds(73, 520, 164, 31);
+		frame.getContentPane().add(bnt_Ok);
+		bnt_Ok.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		bnt_Ok.setForeground(Color.black);
+		bnt_Ok.setBackground(new Color(242, 203, 97));
+		
+		JButton bnt_refuse = new JButton("\uAC00\uC785\uCDE8\uC18C");
+		bnt_refuse.setBounds(261, 520, 164, 31);
+		frame.getContentPane().add(bnt_refuse);
+		bnt_refuse.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		bnt_refuse.setForeground(Color.black);
+		bnt_refuse.setBackground(new Color(250, 236, 197));
+		bnt_refuse.setBackground(new Color(242, 203, 97));
+		
+		String h = this.getClass().getResource("../img/horse.png").getPath();
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\horse.png"));
+		lblNewLabel_1.setBounds(105, 21, 57, 36);
+		frame.getContentPane().add(lblNewLabel_1);
+		bnt_refuse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "°¡ÀÔÀ» Ãë¼ÒÇÕ´Ï´Ù", "È¸¿ø°¡ÀÔ", JOptionPane.ERROR_MESSAGE);
+				frame.dispose(); // Ã¢ ´Ý±â
+				MainGUI mainGui = new MainGUI(dto); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
+			}
+		});
 		bnt_Ok.addActionListener(new ActionListener() {
 			
 
@@ -204,32 +318,6 @@ public class MemberShipGUI2 {
 					dao.joinInsert(dto);
 			}		
 			});
-		bnt_Ok.setBounds(12, 362, 185, 31);
-		frame.getContentPane().add(bnt_Ok);
-		
-		JButton bnt_refuse = new JButton("\uAC00\uC785\uCDE8\uC18C");
-		bnt_refuse.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(null, "°¡ÀÔÀ» Ãë¼ÒÇÕ´Ï´Ù", "È¸¿ø°¡ÀÔ", JOptionPane.ERROR_MESSAGE);
-				frame.dispose(); // Ã¢ ´Ý±â
-				MainGUI mainGui = new MainGUI(dto); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
-			}
-		});
-		bnt_refuse.setBounds(237, 362, 185, 31);
-		frame.getContentPane().add(bnt_refuse);
-		
-		JLabel lbl_Sale = new JLabel("\uD560\uC778\uC0AC\uD56D");
-		lbl_Sale.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Sale.setBounds(12, 313, 57, 15);
-		frame.getContentPane().add(lbl_Sale);
-		
-		pw_1 = new JPasswordField();
-		pw_1.setBounds(81, 103, 116, 21);
-		frame.getContentPane().add(pw_1);
-		
-		pw_2 = new JPasswordField();
-		pw_2.setBounds(81, 134, 116, 21);
-		frame.getContentPane().add(pw_2);
 		
 		
 	}

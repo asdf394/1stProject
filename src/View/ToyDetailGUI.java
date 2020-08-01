@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JPanel;
 
 public class ToyDetailGUI {
 
@@ -64,59 +65,67 @@ public class ToyDetailGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(153, 204, 255));
+		frame.getContentPane().setBackground(Color.WHITE);
 		frame.getContentPane().setForeground(Color.GRAY);
-		frame.setBounds(100, 100, 821, 505);
+		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("\uC601\uC5ED");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		lblNewLabel.setBounds(366, 179, 57, 15);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_sector = new JLabel("\uC601\uC5ED");
+		lbl_sector.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_sector.setForeground(new Color(240, 97, 97));
+		lbl_sector.setBounds(505, 202, 57, 15);
+		frame.getContentPane().add(lbl_sector);
 
-		JLabel label = new JLabel("\uBC1C\uB2EC\uC815\uBCF4\r\n");
-		label.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		label.setBounds(366, 258, 76, 15);
-		frame.getContentPane().add(label);
+		JLabel lbl_info = new JLabel("\uBC1C\uB2EC\uC815\uBCF4\r\n");
+		lbl_info.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_info.setForeground(new Color(240, 97, 97));
+		lbl_info.setBounds(505, 267, 76, 15);
+		frame.getContentPane().add(lbl_info);
 
-		JLabel label_1 = new JLabel("\uC5F0\uB839");
-		label_1.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		label_1.setBounds(366, 312, 57, 19);
-		frame.getContentPane().add(label_1);
+		JLabel lbl_age = new JLabel("\uC5F0\uB839");
+		lbl_age.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_age.setForeground(new Color(240, 97, 97));
+		lbl_age.setBounds(505, 335, 57, 19);
+		frame.getContentPane().add(lbl_age);
 
-		JLabel label_3 = new JLabel("\uB300\uC5EC\uAD6C\uBD84");
-		label_3.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		label_3.setBounds(366, 382, 76, 15);
-		frame.getContentPane().add(label_3);
+		JLabel lbl_rent = new JLabel("\uB300\uC5EC\uAD6C\uBD84");
+		lbl_rent.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_rent.setForeground(new Color(240, 97, 97));
+		lbl_rent.setBounds(505, 405, 76, 15);
+		frame.getContentPane().add(lbl_rent);
 
 		JLabel lblNewLabel_1 = new JLabel("\uC7A5\uB09C\uAC10 \uC0C1\uC138\uC815\uBCF4\r\n");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 28));
-		lblNewLabel_1.setBounds(64, 10, 644, 53);
+		lblNewLabel_1.setFont(new Font("±¼¸²", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(338, 21, 256, 53);
+		lblNewLabel_1.setForeground(new Color(150, 60, 7));
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JButton btnNewButton = new JButton("\uC774\uC804\uD654\uBA74");
+		JButton btnNewButton = new JButton("\uB2EB\uAE30");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				ToyInfoGUI toyInfoGUI = new ToyInfoGUI();
 			}
 		});
-		btnNewButton.setBounds(696, 433, 97, 23);
+		btnNewButton.setBounds(366, 496, 174, 40);
+		btnNewButton.setBackground(new Color(150, 60, 7));
 		frame.getContentPane().add(btnNewButton);
 
 		// String domain = getNum().get(0).getDomain();
 		JLabel lb_domain = new JLabel(getNum().get(0).getDomain());
-		lb_domain.setBounds(477, 178, 256, 19);
+		lb_domain.setBounds(616, 201, 256, 19);
 		frame.getContentPane().add(lb_domain);
 
 		JLabel lb_develop = new JLabel(getNum().get(0).getDevelop());
-		lb_develop.setBounds(477, 257, 256, 19);
+		lb_develop.setBounds(616, 266, 256, 19);
 		frame.getContentPane().add(lb_develop);
 
 		JLabel lb_age = new JLabel(getNum().get(0).getAge());
-		lb_age.setBounds(477, 312, 256, 19);
+		lb_age.setBounds(616, 335, 256, 19);
 		frame.getContentPane().add(lb_age);
 
 		int rent = getNum().get(0).getRent();
@@ -127,22 +136,36 @@ public class ToyDetailGUI {
 			rent1 = "´ë¿© Áß";
 		}
 		JLabel lb_rent = new JLabel(rent1);
-		lb_rent.setBounds(477, 381, 256, 19);
+		lb_rent.setBounds(616, 404, 256, 19);
+		
 		frame.getContentPane().add(lb_rent);
 
-		JLabel lblNewLabel_3 = new JLabel("\uC774\uB984");
-		lblNewLabel_3.setFont(new Font("±¼¸²", Font.BOLD, 16));
-		lblNewLabel_3.setBounds(366, 100, 57, 15);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lbl_name = new JLabel("\uC774\uB984");
+		lbl_name.setBackground(new Color(0, 204, 102));
+		lbl_name.setForeground(new Color(240, 97, 97));
+		lbl_name.setFont(new Font("±¼¸²", Font.BOLD, 16));
+		lbl_name.setBounds(505, 123, 57, 15);
+		
+		frame.getContentPane().add(lbl_name);
 
 		JLabel lb_name = new JLabel(getNum().get(0).getName());
-		lb_name.setBounds(477, 101, 256, 15);
+		lb_name.setBounds(616, 124, 256, 15);
 		frame.getContentPane().add(lb_name);
 
 		JLabel lblNewLabel_2 = new JLabel();
 		lblNewLabel_2.setIcon(new ImageIcon(getNum().get(0).getImg()));
-		lblNewLabel_2.setBounds(12, 66, 327, 369);
+		lblNewLabel_2.setBounds(58, 109, 339, 357);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(250, 236, 197));
+		panel.setBounds(37, 94, 815, 386);
+		frame.getContentPane().add(panel);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\icons8-rubik's-cube-48 (2).png"));
+		lblNewLabel_4.setBounds(319, 27, 57, 47);
+		frame.getContentPane().add(lblNewLabel_4);
 
 	}
 }

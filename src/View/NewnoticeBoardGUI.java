@@ -18,6 +18,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JPanel;
 
 public class NewnoticeBoardGUI {
 
@@ -56,31 +59,40 @@ public class NewnoticeBoardGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 524, 517);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 520, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lbl_title = new JLabel("\uC81C\uBAA9");
+		JLabel lbl_title = new JLabel("\uC81C \uBAA9");
+		lbl_title.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_title.setForeground(new Color(233, 113, 113));
 		lbl_title.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_title.setBounds(12, 149, 57, 15);
+		lbl_title.setBounds(29, 193, 57, 15);
 		frame.getContentPane().add(lbl_title);
 		
 		tf_title = new JTextField();
-		tf_title.setBounds(81, 146, 357, 21);
+		tf_title.setBounds(98, 190, 357, 21);
 		frame.getContentPane().add(tf_title);
 		tf_title.setColumns(10);
 		
-		JLabel lb_content = new JLabel("\uB0B4\uC6A9");
+		JLabel lb_content = new JLabel("\uB0B4 \uC6A9");
+		lb_content.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lb_content.setForeground(new Color(233, 113, 113));
 		lb_content.setHorizontalAlignment(SwingConstants.CENTER);
-		lb_content.setBounds(12, 271, 57, 15);
+		lb_content.setBounds(29, 315, 57, 15);
 		frame.getContentPane().add(lb_content);
 		
 		tf_content = new JTextField();
-		tf_content.setBounds(81, 177, 357, 229);
+		tf_content.setBounds(98, 221, 357, 229);
 		frame.getContentPane().add(tf_content);
 		tf_content.setColumns(10);
 		
 		JButton bnt_new = new JButton("\uB4F1\uB85D");
+		bnt_new.setForeground(Color.WHITE);
+		bnt_new.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		bnt_new.setBackground(new Color(242, 203, 97));
+		bnt_new.setBackground(new Color(250, 236, 197));
 		bnt_new.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(tf_name.getText().trim().length()==0 || tf_name.getText().trim().equals("¿Ã∏ß")) {
@@ -122,10 +134,52 @@ public class NewnoticeBoardGUI {
 				
 			}
 		});
-		bnt_new.setBounds(104, 427, 97, 23);
+		bnt_new.setBounds(121, 471, 122, 33);
 		frame.getContentPane().add(bnt_new);
 		
+		JLabel lbl_ID = new JLabel("I D");
+		lbl_ID.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_ID.setForeground(new Color(233, 113, 113));
+		lbl_ID.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_ID.setBounds(29, 149, 57, 15);
+		frame.getContentPane().add(lbl_ID);
+		
+		JLabel lbl_name = new JLabel("\uC774 \uB984");
+		lbl_name.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_name.setForeground(new Color(233, 113, 113));
+		lbl_name.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_name.setBounds(29, 110, 57, 15);
+		frame.getContentPane().add(lbl_name);
+		
+		tf_name = new JTextField();
+		tf_name.setColumns(10);
+		tf_name.setBounds(98, 107, 180, 21);
+		frame.getContentPane().add(tf_name);
+		
+		tf_ID = new JTextField();
+		tf_ID.setColumns(10);
+		tf_ID.setBounds(98, 146, 180, 21);
+		frame.getContentPane().add(tf_ID);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 10, 484, 541);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lbl_Bigname = new JLabel("\uAE00 \uC4F0 \uAE30");
+		lbl_Bigname.setForeground(new Color(232, 74, 95));
+		lbl_Bigname.setBounds(183, 27, 129, 24);
+		panel.add(lbl_Bigname);
+		lbl_Bigname.setFont(new Font("±º∏≤", Font.BOLD, 30));
+		lbl_Bigname.setHorizontalAlignment(SwingConstants.CENTER);
+		
 		JButton bnt_close = new JButton("\uCDE8\uC18C");
+		bnt_close.setForeground(Color.WHITE);
+		bnt_close.setFont(new Font("±º∏≤", Font.BOLD, 15));
+		lbl_ID.setBackground(new Color(233, 113, 113));
+		bnt_close.setBounds(255, 462, 119, 33);
+		panel.add(bnt_close);
 		bnt_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "µÓ∑œ¿ª √Îº“«’¥œ¥Ÿ", "∞‘Ω√±€ µÓ∑œ", JOptionPane.ERROR_MESSAGE);
@@ -133,32 +187,5 @@ public class NewnoticeBoardGUI {
 				noticeBoardGUI NoticeBoradGUI = new noticeBoardGUI();
 			}
 		});
-		bnt_close.setBounds(305, 427, 97, 23);
-		frame.getContentPane().add(bnt_close);
-		
-		JLabel lbl_Bigname = new JLabel("\uAE00\uC4F0\uAE30");
-		lbl_Bigname.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_Bigname.setBounds(12, 10, 484, 46);
-		frame.getContentPane().add(lbl_Bigname);
-		
-		JLabel lbl_ID = new JLabel("ID");
-		lbl_ID.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_ID.setBounds(12, 105, 57, 15);
-		frame.getContentPane().add(lbl_ID);
-		
-		JLabel lbl_name = new JLabel("\uC774\uB984");
-		lbl_name.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_name.setBounds(12, 66, 57, 15);
-		frame.getContentPane().add(lbl_name);
-		
-		tf_name = new JTextField();
-		tf_name.setColumns(10);
-		tf_name.setBounds(81, 63, 180, 21);
-		frame.getContentPane().add(tf_name);
-		
-		tf_ID = new JTextField();
-		tf_ID.setColumns(10);
-		tf_ID.setBounds(81, 102, 180, 21);
-		frame.getContentPane().add(tf_ID);
 	}
 }

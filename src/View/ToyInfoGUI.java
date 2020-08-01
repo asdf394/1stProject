@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 public class ToyInfoGUI {
 
@@ -65,21 +66,25 @@ public class ToyInfoGUI {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(153, 204, 255));
-		frame.setBounds(100, 100, 1085, 679);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 900, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("\uC7A5\uB09C\uAC10 \uC815\uBCF4\r\n");
-		lblNewLabel.setFont(new Font("돋움체", Font.BOLD, 27));
-		lblNewLabel.setBounds(46, 10, 327, 39);
+		JLabel lblNewLabel = new JLabel("TOY INFORMATION");
+		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 25));
+		lblNewLabel.setBounds(358, 31, 238, 39);
+		lblNewLabel.setForeground(new Color(150, 60, 7));
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(28, 214, 1029, 319);
+		
+		scrollPane.setBounds(18, 143, 840, 319);
+		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
 		frame.getContentPane().add(scrollPane);
 
 		  String[] colName = { "번호", "이름", "영역", "발달정보", "사용연령", "대여여부" };
+		
 	      ToyDAO dao = new ToyDAO();
 	      ArrayList<ToyDTO> toyList = dao.toyInfo();
 	      Object[][] data = new Object[toyList.size()][8];
@@ -139,7 +144,8 @@ public class ToyInfoGUI {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(42, 543, 97, 23);
+		btnNewButton.setBounds(571, 492, 225, 39);
+		btnNewButton.setBackground(new Color(242, 203, 97));
 		frame.getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("\uC7A5\uB09C\uAC10 \uC815\uBCF4 \uB354\uBCF4\uAE30\r\n");
@@ -149,7 +155,8 @@ public class ToyInfoGUI {
 				ToyDetailGUI toydetailGUI = new ToyDetailGUI(num);
 			}
 		});
-		btnNewButton_1.setBounds(822, 543, 225, 23);
+		btnNewButton_1.setBounds(57, 492, 225, 39);
+		btnNewButton_1.setBackground(new Color(242, 203, 97));
 		frame.getContentPane().add(btnNewButton_1);
 
 		JButton btnNewButton_2 = new JButton("\uC7A5\uBC14\uAD6C\uB2C8 & \uACB0\uC81C\r\n");
@@ -159,15 +166,23 @@ public class ToyInfoGUI {
 				BasketGUI basket = new BasketGUI(basketList);
 			}
 		});
-		btnNewButton_2.setBounds(188, 543, 148, 23);
+		btnNewButton_2.setBounds(318, 492, 225, 39);
+		btnNewButton_2.setBackground(new Color(242, 203, 97));
 		frame.getContentPane().add(btnNewButton_2);
 
 		JLabel lblNewLabel_1 = new JLabel("\uC7A5\uB09C\uAC10\uAC80\uC0C9 :");
-		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(46, 59, 105, 39);
+		
+		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(new Color(150, 60, 7));
+		
+		lblNewLabel_1.setBounds(18, 92, 133, 39);
+		lblNewLabel_1.setBackground(new Color(242, 203, 97));
+		
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JButton bt_search = new JButton("\uAC80\uC0C9\r\n");
+		bt_search.setFont(new Font("굴림", Font.BOLD, 15));
+		bt_search.setForeground(Color.DARK_GRAY);
 		bt_search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String[] colName = { "번호", "이름", "영역", "발달정보", "사용연령", "대여여부" };
@@ -188,12 +203,18 @@ public class ToyInfoGUI {
 			}
 		});
 
-		bt_search.setBounds(877, 57, 113, 43);
+		bt_search.setBounds(745, 90, 113, 43);
+		bt_search.setBackground(new Color(242, 203, 97));
 		frame.getContentPane().add(bt_search);
 
 		textField = new JTextField();
-		textField.setBounds(151, 59, 697, 39);
+		textField.setBounds(114, 92, 619, 39);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\icons8-teddy-bear-48.png"));
+		lblNewLabel_2.setBounds(304, 21, 57, 61);
+		frame.getContentPane().add(lblNewLabel_2);
 	}
 }
