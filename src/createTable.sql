@@ -5,7 +5,7 @@ drop table toy_board CASCADE CONSTRAINTS;
 drop table toy_member CASCADE CONSTRAINTS;
 drop table toy_pay CASCADE CONSTRAINTS;
 drop table toy_rental CASCADE CONSTRAINTS;
-drop sequence TOY_SEQ;
+drop SEQUENCE TOY_BOARD_SEQ;
 
 CREATE SEQUENCE TOY_SEQ --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
@@ -20,6 +20,7 @@ MINVALUE 1 --최소값 1
 NOCYCLE --순한하지않음
 
 select * from toy;
+select * from toy_board;
 insert into toy(name,domain,develop,age,rent,img) values()
 
 --------------------------------------------------------
@@ -75,17 +76,13 @@ END;
 --  DDL for Table TOY_BOARD
 --------------------------------------------------------
 
-  CREATE TABLE "HR"."TOY_BOARD" 
+  CREATE TABLE toy_board 
    (	"NO" NUMBER, 
 	"NAME" VARCHAR2(10 BYTE), 
 	"ID" VARCHAR2(15 BYTE), 
 	"CONTENT" VARCHAR2(400 BYTE), 
 	"TITLE" VARCHAR2(30 BYTE)
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
+   )
 --------------------------------------------------------
 --  DDL for Table TOY_MEMBER
 --------------------------------------------------------
@@ -156,10 +153,6 @@ END;
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "HR"."BOARD_PK" ON "HR"."TOY_BOARD" ("NO") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index TOY_MEMBER_PK
 --------------------------------------------------------

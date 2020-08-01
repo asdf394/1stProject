@@ -83,6 +83,7 @@ public class LoginGUI {
 		JButton btn_login = new JButton("LOGIN");
 		btn_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				MainGUI main = new MainGUI(dto);
 			}
 		});
@@ -102,7 +103,7 @@ public class LoginGUI {
 		btn_join.setBackground(new Color(240, 150, 97));
 		btn_join.setForeground(Color.white);
 		btn_join.setBounds(689, 398, 109, 30);
-		
+
 		frame.getContentPane().add(btn_join);
 
 		String a = this.getClass().getResource("../img/troy.png").getPath();

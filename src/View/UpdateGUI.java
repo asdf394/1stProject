@@ -166,7 +166,6 @@ public class UpdateGUI {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "수정을 취소합니다", "회원가입", JOptionPane.ERROR_MESSAGE);
 				frame.dispose(); // 창 닫기
-				MainGUI mainGui = new MainGUI(dto); // 메인 창 띄우기 객체 생성
 			}
 		});
 		bnt_refuse.setBounds(120, 362, 96, 31);

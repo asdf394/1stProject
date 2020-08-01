@@ -75,7 +75,8 @@ public class MainGUI {
 		btn_main_logout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MainGUI mainGui = new MainGUI(dto);
+				LoginGUI login = new LoginGUI(null);
+//				MainGUI mainGui = new MainGUI(dto);
 			}
 		});
 		btn_main_logout.setFont(new Font("±¼¸²", Font.BOLD, 15));
@@ -88,6 +89,7 @@ public class MainGUI {
 		btn_main_showInfo.setForeground(Color.WHITE);
 		btn_main_showInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				MemberInfoGUI memberInfo = new MemberInfoGUI();
 			}
 		});
@@ -147,6 +149,8 @@ public class MainGUI {
 		btn_show_board.setIcon(new ImageIcon(b));
 		btn_show_board.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				noticeBoardGUI board = new noticeBoardGUI(dto);
 			}
 		});
 		btn_show_board.setVerticalAlignment(SwingConstants.BOTTOM);

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Model.MemberDTO;
 import Model.NoticeBoardDAO;
 import Model.NoticeBoardDTO;
 import javax.swing.JTextArea;
@@ -46,9 +47,9 @@ public class noticeBoardCorrect {
 	/**
 	 * Create the application.
 	 */
-	public noticeBoardCorrect(int n) {
+	public noticeBoardCorrect(int n, MemberDTO memDTO) {
 		this.num = n;
-		initialize(num);
+		initialize(num, memDTO);
 		frame.setVisible(true);
 	}
 	public ArrayList<NoticeBoardDTO> getNum() {
@@ -60,7 +61,7 @@ public class noticeBoardCorrect {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(int num) {
+	private void initialize(int num, MemberDTO memDTO) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 519, 600);
@@ -96,7 +97,7 @@ public class noticeBoardCorrect {
 				NoticeBoardDAO dao = new NoticeBoardDAO();
 				dao.boardUpdate(title, content, num);
 				
-				noticeBoardGUI mainGui = new noticeBoardGUI(); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
+				noticeBoardGUI mainGui = new noticeBoardGUI(memDTO); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 			}
 		
 			
@@ -126,7 +127,7 @@ public class noticeBoardCorrect {
 				
 				JOptionPane.showMessageDialog(null, "»èÁ¦°¡ ¿Ï·áµÇ¾ú½À´Ï´Ù", "°Ô½Ã¹° »èÁ¦", JOptionPane.INFORMATION_MESSAGE);
 				frame.dispose(); // Ã¢ ´Ý±â
-				noticeBoardGUI borad = new noticeBoardGUI(); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
+				noticeBoardGUI borad = new noticeBoardGUI(memDTO); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 				
 			}
 		});

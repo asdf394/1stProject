@@ -91,7 +91,7 @@ public class NoticeBoardDAO {
 		int cnt = 0;
 		getConnect();
 //		String sql = "insert into TOY_BOARD values(TOY_BOARD_SEQ.NEXTVAL,?,?,?,?)";
-		String sql = "insert into TOY_BOARD values(toy_sequence.NEXTVAL,?,?,?,?)";
+		String sql = "insert into TOY_BOARD values(TOY_BOARD_SEQ.NEXTVAL,?,?,?,?)";
 		try {
 
 			psmt = conn.prepareStatement(sql);

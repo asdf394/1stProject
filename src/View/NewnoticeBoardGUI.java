@@ -50,15 +50,15 @@ public class NewnoticeBoardGUI {
 	/**
 	 * Create the application.
 	 */
-	public NewnoticeBoardGUI() {
-		initialize();
+	public NewnoticeBoardGUI(MemberDTO dto) {
+		initialize(dto);
 		frame.setVisible(true);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 519, 600);
@@ -93,7 +93,7 @@ public class NewnoticeBoardGUI {
 				}else {
 					JOptionPane.showMessageDialog(null, "등록이 완료되었습니다", "게시물 등록", JOptionPane.INFORMATION_MESSAGE);
 					frame.dispose(); // 창 닫기
-					noticeBoardGUI borad = new noticeBoardGUI(); // 메인 창 띄우기 객체 생성
+					noticeBoardGUI borad = new noticeBoardGUI(dto); // 메인 창 띄우기 객체 생성
 				}
 				
 				
@@ -120,7 +120,7 @@ public class NewnoticeBoardGUI {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "등록을 취소합니다", "게시글 등록", JOptionPane.ERROR_MESSAGE);
 				frame.dispose();
-				noticeBoardGUI NoticeBoradGUI = new noticeBoardGUI();
+				noticeBoardGUI NoticeBoradGUI = new noticeBoardGUI(dto);
 			}
 		});
 		bnt_close.setBounds(267, 505, 124, 35);

@@ -91,6 +91,7 @@ public class MemberInfoGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
+				MainGUI main = new MainGUI(null);
 			}
 		});
 		btnNewButton.setBounds(5, 492, 429, 41);
