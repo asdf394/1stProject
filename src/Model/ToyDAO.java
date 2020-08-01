@@ -117,7 +117,7 @@ public class ToyDAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, num);
 			rs = psmt.executeQuery();
-		
+
 			while (rs.next()) {
 				int no = rs.getInt(1);
 				String name = rs.getString(2);
@@ -169,4 +169,99 @@ public class ToyDAO {
 
 		return toyList;
 	}
+
+	// 국경아 7/31 수정
+	public int addBasket(ToyDTO Tdto, MemberDTO memDTO) { // 장바구니에 넣을 경우 DB에 저장
+		int cnt = 0;
+
+		getConnect();
+
+		String sql = "insert into toy_basket values(BASKET_SEQ.NEXTVAL,?,?)";
+		try {
+			// 1.ID, 2.장난감 번호
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, memDTO.getId());
+			System.out.println("장바구니 담을 경우 아이디 출력" + memDTO.getId());
+			psmt.setInt(2, Tdto.getNo());
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return cnt;
+
+	}
+
+	public void clearBasket() {// 결제를 누르면 장바구니 초기화, 시퀀스 수정
+		getConnect();
+		String sql = "TRUNCATE TABLE TOY_BASKET";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+
+	public void clearBasketSQ() { // 결제 누르면 바스켓 시쿼스 초기화
+		getConnect();
+		String sql1 = "drop sequence BASKET_SEQ";
+		String sql2 = "CREATE SEQUENCE BASKET_SEQ INCREMENT BY 1 START WITH 1 MINVALUE 1 NOCYCLE";
+		try {
+			psmt = conn.prepareStatement(sql1);
+			psmt.execute();
+			psmt = conn.prepareStatement(sql2);
+			psmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+	}
+
+	public int countBK() { // 장바구니에 들어 있는 개수 구하기
+		int cnt = 0;
+		getConnect();
+		String sql = "SELECT COUNT(*) FROM toy_basket";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				cnt = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+
+	public int changeRent(int toyN) { // 렌트 됐을 때 대여중으로 변경 rent = 1
+		getConnect();
+		int cnt = 0;
+		String sql = "update TOY set RENT=1 where no = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, toyN);
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+	}
+
 }
