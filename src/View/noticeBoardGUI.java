@@ -77,7 +77,7 @@ public class noticeBoardGUI {
 		lbl_notice.setForeground(new Color(240, 150, 97));
 		lbl_notice.setFont(new Font("±¼¸²", Font.BOLD, 30));
 		lbl_notice.setHorizontalAlignment(SwingConstants.CENTER);
-		lbl_notice.setBounds(332, 10, 193, 65);
+		lbl_notice.setBounds(365, 11, 193, 65);
 		frame.getContentPane().add(lbl_notice);
 
 		JButton btn_make = new JButton("\uAE00 \uC791\uC131");
@@ -128,8 +128,9 @@ public class noticeBoardGUI {
 				return false;
 			}
 		};
-
+		model.fireTableDataChanged();
 		table = new JTable(model);
+		
 
 		table.addMouseListener(new MouseAdapter() {
 			@Override
@@ -194,11 +195,14 @@ public class noticeBoardGUI {
 		lbl_check.setHorizontalAlignment(SwingConstants.CENTER);
 		lbl_check.setBounds(22, 87, 108, 31);
 		frame.getContentPane().add(lbl_check);
-
+		
+		String a = this.getClass().getResource("../img/board33.png").getPath();
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\frog.png"));
-		lblNewLabel.setBounds(296, 10, 56, 66);
+		lblNewLabel.setIcon(new ImageIcon(a));
+		lblNewLabel.setBounds(315, 11, 71, 65);
 		frame.getContentPane().add(lblNewLabel);
+
+		
 
 	}
 }

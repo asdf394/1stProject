@@ -271,8 +271,10 @@ public class UpdateGUI {
 		label_4.setIcon(new ImageIcon(g));
 		label_4.setBounds(46, 311, 30, 31);
 		panel.add(label_4);
+		
+		String a = this.getClass().getResource("../img/change.png").getPath();
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\SMT068\\Desktop\\check.png"));
+		lblNewLabel.setIcon(new ImageIcon(a));
 		lblNewLabel.setBounds(116, 31, 48, 31);
 		frame.getContentPane().add(lblNewLabel);
 

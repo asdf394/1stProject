@@ -136,3 +136,4 @@ NOCYCLE; --순한하지않음
 	CONSTRAINT "BOARD_MEM_ID_FK1" FOREIGN KEY ("ID")
 	 REFERENCES "HR"."TOY_MEMBER" ("ID")	
    );
+ delete from toy_board;

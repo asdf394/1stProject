@@ -120,19 +120,19 @@ public class ToyDetailGUI {
 		// String domain = getNum().get(0).getDomain();
 		JLabel lb_domain = new JLabel(getNum().get(0).getDomain());
 		lb_domain.setForeground(new Color(233, 113, 113));
-		lb_domain.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lb_domain.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lb_domain.setBounds(616, 201, 256, 19);
 		frame.getContentPane().add(lb_domain);
 
 		JLabel lb_develop = new JLabel(getNum().get(0).getDevelop());
 		lb_develop.setForeground(new Color(233, 113, 113));
-		lb_develop.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lb_develop.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lb_develop.setBounds(616, 266, 256, 19);
 		frame.getContentPane().add(lb_develop);
 
 		JLabel lb_age = new JLabel(getNum().get(0).getAge());
 		lb_age.setForeground(new Color(233, 113, 113));
-		lb_age.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lb_age.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lb_age.setBounds(616, 335, 256, 19);
 		frame.getContentPane().add(lb_age);
 
@@ -145,7 +145,7 @@ public class ToyDetailGUI {
 		}
 		JLabel lb_rent = new JLabel(rent1);
 		lb_rent.setForeground(new Color(233, 113, 113));
-		lb_rent.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lb_rent.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lb_rent.setBounds(616, 404, 256, 19);
 
 		frame.getContentPane().add(lb_rent);
@@ -160,7 +160,7 @@ public class ToyDetailGUI {
 
 		JLabel lb_name = new JLabel(getNum().get(0).getName());
 		lb_name.setForeground(new Color(233, 113, 113));
-		lb_name.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lb_name.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		lb_name.setBounds(616, 124, 256, 15);
 		frame.getContentPane().add(lb_name);
 
@@ -173,6 +173,41 @@ public class ToyDetailGUI {
 		panel.setBackground(new Color(250, 236, 197));
 		panel.setBounds(37, 94, 815, 386);
 		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(379, 12, 0, 0);
+		panel.add(lblNewLabel);
+		
+		String b = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(b));
+		lblNewLabel_3.setBounds(438, 22, 22, 29);
+		panel.add(lblNewLabel_3);
+		
+		String c = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon(c));
+		label.setBounds(438, 101, 22, 29);
+		panel.add(label);
+		
+		String d = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_1 = new JLabel("");
+		label_1.setIcon(new ImageIcon(d));
+		label_1.setBounds(438, 164, 22, 29);
+		panel.add(label_1);
+		
+		String e = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_2 = new JLabel("");
+		label_2.setIcon(new ImageIcon(e));
+		label_2.setBounds(438, 233, 22, 29);
+		panel.add(label_2);
+		
+		String f = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_3 = new JLabel("");
+		label_3.setIcon(new ImageIcon(f));
+		label_3.setBounds(438, 303, 22, 29);
+		panel.add(label_3);
 
 		String a = this.getClass().getResource("../img/cube.png").getPath();
 		JLabel lblNewLabel_4 = new JLabel("");

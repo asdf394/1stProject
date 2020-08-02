@@ -84,13 +84,12 @@ public class NoticeBoardDAO {
 
 	public int joinInsert(NoticeBoardDTO dto) {// TOY_BOARD_SEQ.NEXTVAL
 
-		System.out.println(dto.getName());
-		System.out.println(dto.getID());
+		System.out.println("게시판 등록 이름 : "+dto.getName());
+		System.out.println("게시판 등록 아이디 : "+dto.getID());
 		System.out.println(dto.getCONTENT());
 		System.out.println(dto.getTITLE());
 		int cnt = 0;
 		getConnect();
-//		String sql = "insert into TOY_BOARD values(TOY_BOARD_SEQ.NEXTVAL,?,?,?,?)";
 		String sql = "insert into TOY_BOARD values(BOARD_SEQ.NEXTVAL,?,?,?,?)";
 		try {
 
