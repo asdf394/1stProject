@@ -102,7 +102,7 @@ public class MainGUI {
 				if (loginDto.getId().equals("admin")) {
 					MemberInfoGUI admin = new MemberInfoGUI();
 				}else {
-					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI();
+					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI(dto);
 				}
 			}
 		});

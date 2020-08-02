@@ -292,7 +292,6 @@ public class PayGUI {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "결제가 완료되었습니다.");
 				frame.dispose();
-				MainGUI mainGui = new MainGUI(dto);
 
 				int count = tDAO.countBK(); // 장바구니 담겨 있는 개수 구하기
 				int[] toyN = pDAO.selectToyNo(dto.getId(), count);
