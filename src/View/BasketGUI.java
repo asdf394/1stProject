@@ -112,9 +112,7 @@ public class BasketGUI {
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				System.out.println("결제창에서 페이창으로 넘기기 " + dto.getId());
-				frame.dispose();
 				PayGUI pay = new PayGUI(dto);
 			}
 		});

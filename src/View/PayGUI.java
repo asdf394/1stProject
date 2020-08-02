@@ -430,6 +430,7 @@ public class PayGUI {
 		frame.getContentPane().add(button_1);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
 			}
 		});
 
