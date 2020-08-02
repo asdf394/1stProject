@@ -184,7 +184,7 @@ public class ToyDAO {
 			psmt.setString(1, memDTO.getId());
 			System.out.println("장바구니 담을 경우 아이디 출력" + memDTO.getId());
 			psmt.setInt(2, Tdto.getNo());
-			System.out.println("장바구니 담을 경우 장난감 번호 출력 : "+  Tdto.getNo());
+			System.out.println("장바구니 담을 경우 장난감 번호 출력 : " + Tdto.getNo());
 
 			cnt = psmt.executeUpdate();
 		} catch (SQLException e) {
@@ -265,4 +265,41 @@ public class ToyDAO {
 		return cnt;
 	}
 
+	public int returnToy(Object toyNo) { // 대여가능으로 바꾸기
+		getConnect();
+		int cnt = 0;
+		String sql = "update TOY set RENT=0 where no = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, Integer.parseInt(toyNo.toString()));
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	}
+
+	public int delToyRent(Object toyNo) { // 토이 랜탈 테이블에서 지우기
+		getConnect();
+		int cnt = 0;
+		String sql = "delete from TOY_RENTAL where no = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, Integer.parseInt(toyNo.toString()));
+
+			cnt = psmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return cnt;
+
+	}
 }

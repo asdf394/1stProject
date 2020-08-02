@@ -1,9 +1,14 @@
 package View;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,12 +19,6 @@ import javax.swing.SwingConstants;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
-
-import javax.swing.JPanel;
-import java.awt.Color;
-import javax.swing.ImageIcon;
-import java.awt.SystemColor;
-import javax.swing.DropMode;
 
 public class LoginGUI {
 
@@ -65,7 +64,7 @@ public class LoginGUI {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(null);
-
+		
 		tf_id = new JTextField();
 		tf_id.setForeground(SystemColor.scrollbar);
 		tf_id.setToolTipText("");
@@ -86,14 +85,14 @@ public class LoginGUI {
 				MemberDAO dao = new MemberDAO();
 				String id = tf_id.getText();
 				String pw = pf_pw.getText();
-				MemberDTO dto = dao.loginSelect(id,pw);
-				if(dto == null) {
+				MemberDTO dto = dao.loginSelect(id, pw);
+				if (dto == null) {
 					// 다이얼로그 띄우기
 					// 에러메세지 -> 4개 매개변수
 					// 빌드패스 사용
 					JOptionPane.showMessageDialog(null, "로그인 실패", "로그인", JOptionPane.ERROR_MESSAGE);
 					pf_pw.setText(""); // 비밀번호만 사라진다
-				}else {
+				} else {
 					frame.dispose();
 					MainGUI mainGui = new MainGUI(dto);
 					mainGui.loginInfo(dto);
@@ -110,6 +109,8 @@ public class LoginGUI {
 		JButton btn_join = new JButton("JOIN");
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// frame.dispose();
+				MemberShipGUI2 join = new MemberShipGUI2(dto);
 			}
 		});
 		btn_join.setFont(new Font("Bahnschrift", Font.BOLD, 15));

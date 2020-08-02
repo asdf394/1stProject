@@ -1,9 +1,11 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -75,7 +77,7 @@ public class MainGUI {
 		frame.setBounds(100, 100, 900, 601);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
 		btn_main_logout = new JButton("\uB85C\uADF8\uC544\uC6C3");
 		btn_main_logout.setForeground(Color.WHITE);
 		btn_main_logout.addActionListener(new ActionListener() {

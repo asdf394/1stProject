@@ -5,11 +5,11 @@ drop table toy_board CASCADE CONSTRAINTS;
 drop table toy_member CASCADE CONSTRAINTS;
 drop table toy_pay CASCADE CONSTRAINTS;
 drop table toy_rental CASCADE CONSTRAINTS;
-drop SEQUENCE TOY_BOARD_SEQ;
-drop SEQUENCE BASKET_SEQ;
-select * from toy_basket;
+drop sequence TOY_SEQ;
+drop sequence PAY_SEQ;
 
-insert into toy_basket values(BASKET_SEQ.NEXTVAL,4,5)
+SELECT COUNT(*) FROM toy_basket;
+
 
 CREATE SEQUENCE TOY_SEQ --시퀀스이름 EX_SEQ
 INCREMENT BY 1 --증감숫자 1
@@ -17,24 +17,37 @@ START WITH 1 --시작숫자 1
 MINVALUE 1 --최소값 1
 NOCYCLE --순한하지않음
 
-CREATE SEQUENCE TOY_BOARD_SEQ --시퀀스이름 TOY_SEQ
+CREATE SEQUENCE TOY_BOARD_SEQ --시퀀스이름 TOY_BOARD_SEQ
 INCREMENT BY 1 --증감숫자 1
 START WITH 1 --시작숫자 1
 MINVALUE 1 --최소값 1
 NOCYCLE --순한하지않음
 
-CREATE SEQUENCE BASKET_SEQ --시퀀스이름 TOY_SEQ
+CREATE SEQUENCE BASKET_SEQ --시퀀스이름 BASKET_SEQ
 INCREMENT BY 1 --증감숫자 1
 START WITH 1 --시작숫자 1
 MINVALUE 1 --최소값 1
 NOCYCLE --순한하지않음
+
+CREATE SEQUENCE PAY_SEQ --시퀀스이름 BASKET_SEQ
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+NOCYCLE --순한하지않음
+
+
 
 
 select * from toy;
-select * from toy_pay;
-select * from toy_board;
+select * from TOY_RENTAL;
+select * from TOY_PAY;
+select * from TOY_MEMBER
+select * from TOY_BASKET;
 insert into toy(name,domain,develop,age,rent,img) values()
-select SALETARGET from TOY_MEMBER where id like 'a';
+TRUNCATE TABLE TOY_BASKET;
+select toy_no from toy_basket where id ='a';
+insert into toy_pay(no,id,discount,place,pay_year,toy_no) values(PAY_SEQ.NEXTVAL,1,1,1,1,1)
+insert into toy_rental values(394,1,SYSDATE + 7)
 
 --------------------------------------------------------
 --  DDL for Table TOY
@@ -71,7 +84,6 @@ END;
 /
 
 
-
 --------------------------------------------------------
 --  DDL for Table TOY_BASKET
 --------------------------------------------------------
@@ -80,22 +92,22 @@ END;
    (	"NO" NUMBER, 
 	"ID" VARCHAR2(15 BYTE), 
 	"TOY_NO" NUMBER
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
+   );
 --------------------------------------------------------
 --  DDL for Table TOY_BOARD
 --------------------------------------------------------
 
-  CREATE TABLE toy_board 
+  CREATE TABLE "HR"."TOY_BOARD" 
    (	"NO" NUMBER, 
 	"NAME" VARCHAR2(10 BYTE), 
 	"ID" VARCHAR2(15 BYTE), 
 	"CONTENT" VARCHAR2(400 BYTE), 
 	"TITLE" VARCHAR2(30 BYTE)
-   )
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Table TOY_MEMBER
 --------------------------------------------------------
@@ -117,7 +129,7 @@ END;
 --  DDL for Table TOY_PAY
 --------------------------------------------------------
 
-  CREATE TABLE "HR"."TOY_PAY" 
+  CREATE TABLE TOY_PAY 
    (	"NO" NUMBER, 
 	"ID" VARCHAR2(15 BYTE), 
 	"DISCOUNT" NUMBER, 
@@ -125,11 +137,7 @@ END;
 	"PAY_YEAR" VARCHAR2(20 BYTE) DEFAULT 1, 
 	"TOY_NO" NUMBER, 
 	"TOTAL" NUMBER
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
+   ) 
 --------------------------------------------------------
 --  DDL for Table TOY_RENTAL
 --------------------------------------------------------
@@ -138,11 +146,7 @@ END;
    (	"NO" NUMBER, 
 	"PLACE" NUMBER, 
 	"EXPDATE" DATE
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
+   ) 
 --------------------------------------------------------
 --  DDL for Index TOY_PK
 --------------------------------------------------------
@@ -166,6 +170,10 @@ END;
 --------------------------------------------------------
 
   CREATE UNIQUE INDEX "HR"."BOARD_PK" ON "HR"."TOY_BOARD" ("NO") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
 --------------------------------------------------------
 --  DDL for Index TOY_MEMBER_PK
 --------------------------------------------------------
@@ -204,16 +212,16 @@ ALTER TRIGGER "HR"."TOY_TRG" ENABLE;
 --  DDL for Trigger TOY_BASKET_TRG
 --------------------------------------------------------
 
-  CREATE OR REPLACE TRIGGER "HR"."TOY_BASKET_TRG" 
-BEFORE INSERT ON TOY_BASKET 
-FOR EACH ROW 
-BEGIN
-  <<COLUMN_SEQUENCES>>
-  BEGIN
-    IF INSERTING AND :NEW.NO IS NULL THEN
-      SELECT TOY_BASKET_SEQ.NEXTVAL INTO :NEW.NO FROM SYS.DUAL
-/
-ALTER TRIGGER "HR"."TOY_BASKET_TRG" ENABLE;
+--  CREATE OR REPLACE TRIGGER "HR"."TOY_BASKET_TRG" 
+--BEFORE INSERT ON TOY_BASKET 
+--FOR EACH ROW 
+--BEGIN
+--  <<COLUMN_SEQUENCES>>
+--  BEGIN
+--    IF INSERTING AND :NEW.NO IS NULL THEN
+--      SELECT TOY_BASKET_SEQ.NEXTVAL INTO :NEW.NO FROM SYS.DUAL
+--/
+--ALTER TRIGGER "HR"."TOY_BASKET_TRG" ENABLE;
 --------------------------------------------------------
 --  DDL for Trigger BOARD_TRG
 --------------------------------------------------------
@@ -227,33 +235,6 @@ BEGIN
     NULL
 /
 ALTER TRIGGER "HR"."BOARD_TRG" ENABLE;
---------------------------------------------------------
---  DDL for Trigger TOY_PAY_TRG
---------------------------------------------------------
-
-  CREATE OR REPLACE TRIGGER "HR"."TOY_PAY_TRG" 
-BEFORE INSERT ON TOY_PAY 
-FOR EACH ROW 
-BEGIN
-  <<COLUMN_SEQUENCES>>
-  BEGIN
-    IF INSERTING AND :NEW.NO IS NULL THEN
-      SELECT TOY_PAY_SEQ.NEXTVAL INTO :NEW.NO FROM SYS.DUAL
-/
-ALTER TRIGGER "HR"."TOY_PAY_TRG" ENABLE;
---------------------------------------------------------
---  DDL for Trigger TOY_RENTAL_TRG
---------------------------------------------------------
-
-  CREATE OR REPLACE TRIGGER "HR"."TOY_RENTAL_TRG" 
-BEFORE INSERT ON TOY_RENTAL 
-FOR EACH ROW 
-BEGIN
-  <<COLUMN_SEQUENCES>>
-  BEGIN
-    NULL
-/
-ALTER TRIGGER "HR"."TOY_RENTAL_TRG" ENABLE;
 
 --------------------------------------------------------
 --  Constraints for Table TOY_BASKET

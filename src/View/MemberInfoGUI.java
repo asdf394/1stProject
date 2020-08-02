@@ -28,6 +28,8 @@ public class MemberInfoGUI {
 	private JFrame frame;
 	private JTable table;
 	private JTable table_1;
+	private Object toyNo;// 국경아 수정 8월 1일
+	private int delRow;
 
 	/**
 	 * Launch the application.
@@ -82,7 +84,11 @@ public class MemberInfoGUI {
 			data[i][2] = memberList.get(i).getName();
 			data[i][3] = memberList.get(i).getAddress();
 			data[i][4] = memberList.get(i).getPhoneNumber();
-			data[i][5] = memberList.get(i).getSaletarget();
+			if (memberList.get(i).getSaletarget() == 2) { // 기초수급자,장애인
+				data[i][5] = "50% 할인대상자";
+			} else {
+				data[i][5] = "";
+			}
 		}
 
 		DefaultTableModel model = new DefaultTableModel(data, colName) {// 셀클릭시 기본은 셀 편집 상태가 되는 것을 막기위해
@@ -113,7 +119,7 @@ public class MemberInfoGUI {
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(445, 99, 428, 319);
+		scrollPane_1.setBounds(445, 124, 428, 319);
 		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
 		frame.getContentPane().add(scrollPane_1);
 
@@ -140,7 +146,6 @@ public class MemberInfoGUI {
 					// 더블 클릭한 행의 ID가져오기
 
 					int row = table.getSelectedRow();
-					int col = table.getSelectedColumn();
 					Object value = table.getValueAt(row, 0);
 					System.out.println("선택한 행의 ID : " + value);
 
@@ -163,5 +168,45 @@ public class MemberInfoGUI {
 			}
 
 		});
+		// 국경아 수정 8월 1일
+		// 회원이 빌린 장난감 선택했을시 해당 값 받아오기
+
+		table_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 1) {
+					// 클릭한 행의 장난감 넘버 가져오기
+					delRow = table_1.getSelectedRow();
+					toyNo = table_1.getValueAt(delRow, 0);
+					System.out.println("선택한 행의 장난감 번호 : " + toyNo);
+				}
+			}
+		});
+
+		JButton btnNewButton_1 = new JButton("\uBC18\uD658 \uC644\uB8CC");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ToyDAO tDAO = new ToyDAO();
+				int cnt1 = tDAO.returnToy(toyNo);
+				if (cnt1 != 0) {
+					System.out.println("토이 반환됨");
+				} else {
+					System.out.println("토이 반환안됨");
+				}
+				int cnt2 = tDAO.delToyRent(toyNo);
+				if (cnt2 != 0) {
+					System.out.println(toyNo + "대여테이블에서 삭제");
+				} else {
+					System.out.println(toyNo + "대여테이블에서 삭제 안됨");
+				}
+				model1.removeRow(delRow);
+
+			}
+		});
+		btnNewButton_1.setBounds(616, 459, 97, 23);
+		frame.getContentPane().add(btnNewButton_1);
+
+		/////////// 여기까지 수정
+
 	}
 }

@@ -55,7 +55,7 @@ public class PayDAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
-			System.out.println("payCal 함수 아이디 받아오기 : "+ dto.getId());
+			System.out.println("payCal 함수 아이디 받아오기 : " + dto.getId());
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				result = rs.getInt(1);
@@ -223,4 +223,5 @@ public class PayDAO {
 		return cnt;
 
 	}
+
 }
