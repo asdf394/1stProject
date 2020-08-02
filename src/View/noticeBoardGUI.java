@@ -55,6 +55,7 @@ public class noticeBoardGUI {
 	public noticeBoardGUI(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -100,7 +101,7 @@ public class noticeBoardGUI {
 		btn_close.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose(); // Ã¢ ´Ý±â
-				MainGUI mainGui = new MainGUI(null); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
+				MainGUI mainGui = new MainGUI(dto); // ¸ÞÀÎ Ã¢ ¶ç¿ì±â °´Ã¼ »ý¼º
 			}
 		});
 		btn_close.setBounds(484, 507, 158, 37);

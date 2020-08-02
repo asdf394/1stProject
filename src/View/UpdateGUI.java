@@ -54,9 +54,9 @@ public class UpdateGUI {
 	 * Create the application.
 	 */
 	public UpdateGUI(MemberDTO dto) {
-
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

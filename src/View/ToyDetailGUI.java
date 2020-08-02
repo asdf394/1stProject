@@ -53,6 +53,7 @@ public class ToyDetailGUI {
 		this.num = num;
 		initialize(num, dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	public ArrayList<ToyDTO> getNum() {

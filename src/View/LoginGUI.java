@@ -55,6 +55,7 @@ public class LoginGUI {
 	public LoginGUI(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true); // Main 메소드를 주석처리해서 LoginGUI 단독으로 열릴 수 없다
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -62,6 +63,7 @@ public class LoginGUI {
 	 */
 	private void initialize(MemberDTO dto) {
 		frame = new JFrame();
+		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(new Color(255, 255, 255));
 		frame.getContentPane().setLayout(null);
 		

@@ -50,6 +50,7 @@ public class MemberInfoGUI {
 	public MemberInfoGUI() {
 		initialize();
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

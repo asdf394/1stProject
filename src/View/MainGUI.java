@@ -65,10 +65,10 @@ public class MainGUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(MemberDTO dto) {
-		if(dto == null) {
+		if (dto == null) {
 			System.out.println("로그인 안됨");
-		}else {
-			System.out.println("메인창 ID : "+ dto.getId());
+		} else {
+			System.out.println("메인창 ID : " + dto.getId());
 		}
 
 		frame = new JFrame();
@@ -77,7 +77,8 @@ public class MainGUI {
 		frame.setBounds(100, 100, 900, 601);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		frame.setLocationRelativeTo(null);
+
 		btn_main_logout = new JButton("\uB85C\uADF8\uC544\uC6C3");
 		btn_main_logout.setForeground(Color.WHITE);
 		btn_main_logout.addActionListener(new ActionListener() {
@@ -101,7 +102,7 @@ public class MainGUI {
 				frame.dispose();
 				if (loginDto.getId().equals("admin")) {
 					MemberInfoGUI admin = new MemberInfoGUI();
-				}else {
+				} else {
 					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI(dto);
 				}
 			}
@@ -114,7 +115,6 @@ public class MainGUI {
 		btn_main_modify.setForeground(Color.WHITE);
 		btn_main_modify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
 				UpdateGUI update = new UpdateGUI(dto);
 			}
 		});
@@ -123,8 +123,6 @@ public class MainGUI {
 		btn_main_modify.setBackground(new Color(241, 95, 95));
 		frame.getContentPane().add(btn_main_modify);
 
-		
-		
 		String a = this.getClass().getResource("../img/show_toy.png").getPath();
 		JButton btn_showtoy = new JButton("");
 		btn_showtoy.setIcon(new ImageIcon(a));
@@ -136,13 +134,12 @@ public class MainGUI {
 				ToyInfoGUI toyinfo = new ToyInfoGUI(dto);
 			}
 		});
-		
+
 		btn_showtoy.setForeground(Color.WHITE);
 		btn_showtoy.setBackground(new Color(242, 203, 97));
 		btn_showtoy.setBounds(168, 117, 253, 220);
 		frame.getContentPane().add(btn_showtoy);
-		
-		
+
 //		String a = this.getClass().getResource("../img/troy.png").getPath();
 //		String b = this.getClass().getResource("../img/car.png").getPath();
 //		String c = this.getClass().getResource("../img/ring.png").getPath();
@@ -152,12 +149,7 @@ public class MainGUI {
 //		lbl_troy.setBackground(Color.WHITE);
 //		lbl_troy.setBounds(44, 31, 469, 529);
 //		frame.getContentPane().add(lbl_troy);
-		
-		
-		
-		
-		
-		
+
 		String b = this.getClass().getResource("../img/board.png").getPath();
 		btn_show_board = new JButton("");
 		btn_show_board.setIcon(new ImageIcon(b));
@@ -173,18 +165,13 @@ public class MainGUI {
 		btn_show_board.setBackground(new Color(242, 203, 97));
 		btn_show_board.setBounds(433, 117, 253, 220);
 		frame.getContentPane().add(btn_show_board);
-		
-		
-		  
-		
-		
+
 		lblToyDelivery = new JLabel("TOY DELIVERY");
 		lblToyDelivery.setForeground(new Color(240, 150, 97));
 		lblToyDelivery.setFont(new Font("Bahnschrift", Font.BOLD, 40));
 		lblToyDelivery.setBounds(294, 24, 291, 66);
 		frame.getContentPane().add(lblToyDelivery);
-		
-		
+
 	}
 
 	public void loginInfo(MemberDTO dto) {

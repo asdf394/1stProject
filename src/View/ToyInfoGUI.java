@@ -52,6 +52,7 @@ public class ToyInfoGUI {
 	public ToyInfoGUI(MemberDTO memDTO) {
 		initialize(memDTO);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

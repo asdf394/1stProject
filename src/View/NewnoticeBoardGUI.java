@@ -53,6 +53,7 @@ public class NewnoticeBoardGUI {
 	public NewnoticeBoardGUI(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

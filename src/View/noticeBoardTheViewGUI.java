@@ -46,6 +46,7 @@ public class noticeBoardTheViewGUI {
 		this.num = n;
 		initialize(num, memDTO);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	public ArrayList<NoticeBoardDTO> getNum() {

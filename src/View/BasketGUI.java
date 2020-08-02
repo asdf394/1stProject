@@ -50,6 +50,7 @@ public class BasketGUI {
 	public BasketGUI(ArrayList<ToyDTO> basketList, MemberDTO dto) {
 		initialize(basketList, dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

@@ -48,6 +48,7 @@ public class MemberInfoOnlyGUI {
 	public MemberInfoOnlyGUI(MemberDTO memDTO) {
 		initialize(memDTO);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

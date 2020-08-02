@@ -58,6 +58,7 @@ public class MemberShipGUI2 {
 	public MemberShipGUI2(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**

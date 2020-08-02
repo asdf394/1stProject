@@ -64,6 +64,7 @@ public class PayGUI {
 	public PayGUI(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	private int place = 0; // 택배 유무 변수
