@@ -1,26 +1,22 @@
 package View;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 import Model.MemberDTO;
 import Model.NoticeBoardDAO;
 import Model.NoticeBoardDTO;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextArea;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.JPanel;
-import javax.swing.ImageIcon;
 
 public class noticeBoardTheViewGUI {
 
@@ -156,55 +152,56 @@ public class noticeBoardTheViewGUI {
 		JLabel lbl_Nameinfo = new JLabel(name);
 		lbl_Nameinfo.setBounds(131, 59, 166, 23);
 		panel.add(lbl_Nameinfo);
-		
+
 		String b = this.getClass().getResource("../img/flower.png").getPath();
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(b));
 		lblNewLabel_1.setBounds(32, 25, 23, 23);
 		panel.add(lblNewLabel_1);
-		
+
 		String c = this.getClass().getResource("../img/flower.png").getPath();
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon(c));
 		label.setBounds(32, 61, 23, 23);
 		panel.add(label);
-		
+
 		String d = this.getClass().getResource("../img/flower.png").getPath();
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(d));
 		label_1.setBounds(32, 94, 23, 23);
 		panel.add(label_1);
-		
+
 		String e = this.getClass().getResource("../img/flower.png").getPath();
 		JLabel label_2 = new JLabel("");
 		label_2.setIcon(new ImageIcon(e));
 		label_2.setBounds(32, 134, 23, 23);
 		panel.add(label_2);
-		
-				JLabel lbl_Id = new JLabel("I   D");
-				lbl_Id.setBounds(63, 102, 37, 15);
-				panel.add(lbl_Id);
-				lbl_Id.setFont(new Font("±¼¸²", Font.BOLD, 15));
-				lbl_Id.setHorizontalAlignment(SwingConstants.CENTER);
-				lbl_Id.setForeground(new Color(233, 113, 113));
-				
-				JLabel label_3 = new JLabel("\uB0B4 \uC6A9");
-				label_3.setHorizontalAlignment(SwingConstants.CENTER);
-				label_3.setForeground(new Color(233, 113, 113));
-				label_3.setFont(new Font("±¼¸²", Font.BOLD, 15));
-				label_3.setBounds(63, 175, 36, 19);
-				panel.add(label_3);
-				
-						JLabel lbl_Infoinfo = new JLabel(content);
-						lbl_Infoinfo.setBounds(107, 204, 291, 157);
-						panel.add(lbl_Infoinfo);
-						lbl_Infoinfo.setBackground(Color.WHITE);
-						
-						String f = this.getClass().getResource("../img/flower.png").getPath();
-						JLabel label_4 = new JLabel("");
-						label_4.setIcon(new ImageIcon(f));
-						label_4.setBounds(32, 175, 23, 23);
-						panel.add(label_4);
+
+		JLabel lbl_Id = new JLabel("I   D");
+		lbl_Id.setBounds(63, 102, 37, 15);
+		panel.add(lbl_Id);
+		lbl_Id.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		lbl_Id.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Id.setForeground(new Color(233, 113, 113));
+
+		JLabel label_3 = new JLabel("\uB0B4 \uC6A9");
+		label_3.setHorizontalAlignment(SwingConstants.CENTER);
+		label_3.setForeground(new Color(233, 113, 113));
+		label_3.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		label_3.setBounds(63, 175, 36, 19);
+		panel.add(label_3);
+
+		JLabel lbl_Infoinfo = new JLabel(content);
+		lbl_Infoinfo.setBounds(59, 204, 339, 157);
+		panel.add(lbl_Infoinfo);
+		lbl_Infoinfo.setBorder(new LineBorder(new Color(233, 113, 113),3));
+		lbl_Infoinfo.setBackground(Color.WHITE);
+
+		String f = this.getClass().getResource("../img/flower.png").getPath();
+		JLabel label_4 = new JLabel("");
+		label_4.setIcon(new ImageIcon(f));
+		label_4.setBounds(32, 175, 23, 23);
+		panel.add(label_4);
 
 		String a = this.getClass().getResource("../img/ball2.png").getPath();
 		JLabel lblNewLabel = new JLabel("");
