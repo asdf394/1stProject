@@ -98,7 +98,11 @@ public class MainGUI {
 		btn_main_showInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MemberInfoGUI memberInfo = new MemberInfoGUI();
+				if (loginDto.getId().equals("a")) {
+					MemberInfoGUI admin = new MemberInfoGUI();
+				}else {
+					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI();
+				}
 			}
 		});
 		btn_main_showInfo.setFont(new Font("±¼¸²", Font.BOLD, 15));
@@ -186,9 +190,6 @@ public class MainGUI {
 		btn_main_logout.setVisible(true);
 		btn_main_modify.setVisible(true);
 
-		if (loginDto.getId().equals("a")) {
-			btn_main_showInfo.setVisible(true);
-		}
 		JOptionPane.showMessageDialog(null, loginDto.getName() + "´Ô È¯¿µÇÕ´Ï´Ù.");
 	}
 }
