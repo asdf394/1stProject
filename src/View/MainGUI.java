@@ -99,7 +99,7 @@ public class MainGUI {
 		btn_main_showInfo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				if (loginDto.getId().equals("a")) {
+				if (loginDto.getId().equals("admin")) {
 					MemberInfoGUI admin = new MemberInfoGUI();
 				}else {
 					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI();
