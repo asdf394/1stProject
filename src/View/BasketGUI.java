@@ -119,7 +119,7 @@ public class BasketGUI {
 			}
 		});
 		btnNewButton.setBounds(139, 492, 241, 36);
-		btnNewButton.setBackground(new Color(242, 203, 97));
+		btnNewButton.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("\uB4A4 \uB85C \uAC00 \uAE30");
