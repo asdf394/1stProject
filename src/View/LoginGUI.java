@@ -109,7 +109,7 @@ public class LoginGUI {
 		JButton btn_join = new JButton("JOIN");
 		btn_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// frame.dispose();
+			    frame.dispose();
 				MemberShipGUI2 join = new MemberShipGUI2(dto);
 			}
 		});

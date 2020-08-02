@@ -65,15 +65,15 @@ public class BasketGUI {
 		JLabel lblNewLabel = new JLabel("\uAD00\uC2EC \uC7A5\uB09C\uAC10");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 30));
-		lblNewLabel.setBounds(333, 21, 197, 36);
-		lblNewLabel.setForeground(new Color(219, 112, 147));
+		lblNewLabel.setBounds(362, 34, 197, 36);
+		lblNewLabel.setForeground(new Color(240, 150, 97));
 		frame.getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel(
 				"\uB300\uC5EC\uD558\uC2E4 \uC7A5\uB09C\uAC10\uC744 \uC120\uD0DD\uD558\uC138\uC694");
 		lblNewLabel_1.setFont(new Font("굴림", Font.BOLD, 15));
 		lblNewLabel_1.setForeground(new Color(233, 113, 113));
-		lblNewLabel_1.setBounds(25, 80, 217, 23);
+		lblNewLabel_1.setBounds(43, 80, 217, 23);
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -85,11 +85,11 @@ public class BasketGUI {
 		ToyDAO dao = new ToyDAO();
 //		ArrayList<ToyDTO> basketList = new ArrayList<ToyDTO>();
 //		basketList.add(dto);
-		System.out.println("바스켓 리스트 사이즈 ㅣ "+ basketList.size());
+		System.out.println("바스켓 리스트 사이즈 ㅣ " + basketList.size());
 		Object[][] data = new Object[basketList.size()][5];
 
 		for (int i = 0; i < data.length; i++) {
-			System.out.println("장바구니 담긴 장난감 번호 : "+ basketList.get(i).getNo());
+			System.out.println("장바구니 담긴 장난감 번호 : " + basketList.get(i).getNo());
 			System.out.println(basketList.get(i).getName());
 			data[i][0] = basketList.get(i).getNo();
 			data[i][1] = basketList.get(i).getName();
@@ -107,33 +107,44 @@ public class BasketGUI {
 		table.setColumnSelectionAllowed(true);
 		scrollPane.setViewportView(table);
 
-		JButton btnNewButton = new JButton("\uACB0\uC81C");
+		JButton btnNewButton = new JButton("\uB300 \uC5EC \uD558 \uAE30");
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("굴림", Font.BOLD, 15));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				System.out.println("결제창에서 페이창으로 넘기기 "+dto.getId());
+				System.out.println("결제창에서 페이창으로 넘기기 " + dto.getId());
 				frame.dispose();
 				PayGUI pay = new PayGUI(dto);
 			}
 		});
-		btnNewButton.setBounds(43, 492, 241, 36);
+		btnNewButton.setBounds(139, 492, 241, 36);
 		btnNewButton.setBackground(new Color(242, 203, 97));
 		frame.getContentPane().add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("New button");
+		JButton btnNewButton_1 = new JButton("\uB4A4 \uB85C \uAC00 \uAE30");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				ToyInfoGUI toyList = new ToyInfoGUI(dto);
+			}
+		});
 		btnNewButton_1.setFont(new Font("굴림", Font.BOLD, 15));
 		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setBounds(333, 492, 226, 36);
-		btnNewButton_1.setBackground(new Color(242, 203, 97));
+		btnNewButton_1.setBounds(519, 492, 226, 36);
+		btnNewButton_1.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btnNewButton_1);
 
-		JButton button = new JButton("New button");
-		button.setForeground(Color.WHITE);
-		button.setFont(new Font("굴림", Font.BOLD, 15));
-		button.setBounds(603, 492, 226, 36);
-		button.setBackground(new Color(242, 203, 97));
-		frame.getContentPane().add(button);
+		String a = this.getClass().getResource("../img/toycar.png").getPath();
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon(a));
+		lblNewLabel_2.setBounds(309, 21, 70, 49);
+		frame.getContentPane().add(lblNewLabel_2);
+
+		String b = this.getClass().getResource("../img/check2.png").getPath();
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(b));
+		lblNewLabel_3.setBounds(16, 80, 23, 23);
+		frame.getContentPane().add(lblNewLabel_3);
 	}
 }

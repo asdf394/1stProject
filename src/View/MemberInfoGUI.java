@@ -145,6 +145,10 @@ public class MemberInfoGUI {
 				if (arg0.getClickCount() == 2) {
 					// 더블 클릭한 행의 ID가져오기
 
+					// 회원이 바뀔때마다 장난감 목록 테이블 초기화
+					DefaultTableModel model1 = (DefaultTableModel) table_1.getModel();
+					model1.setRowCount(0);
+
 					int row = table.getSelectedRow();
 					Object value = table.getValueAt(row, 0);
 					System.out.println("선택한 행의 ID : " + value);

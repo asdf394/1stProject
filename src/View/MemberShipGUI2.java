@@ -249,7 +249,7 @@ public class MemberShipGUI2 {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "가입을 취소합니다", "회원가입", JOptionPane.ERROR_MESSAGE);
 				frame.dispose(); // 창 닫기
-				MainGUI mainGui = new MainGUI(dto); // 메인 창 띄우기 객체 생성
+				LoginGUI login = new LoginGUI(dto); // 메인 창 띄우기 객체 생성
 			}
 		});
 		bnt_Ok.addActionListener(new ActionListener() {
@@ -293,7 +293,7 @@ public class MemberShipGUI2 {
 					}else {
 						JOptionPane.showMessageDialog(null, "가입을 축하드립니다", "회원가입", JOptionPane.INFORMATION_MESSAGE);
 						frame.dispose(); // 창 닫기
-						MainGUI mainGui = new MainGUI(dto); // 메인 창 띄우기 객체 생성
+						LoginGUI login = new LoginGUI(dto); // 메인 창 띄우기 객체 생성
 					}
 					
 					
