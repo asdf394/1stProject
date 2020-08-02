@@ -1,34 +1,26 @@
 package View;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import javax.swing.JTable;
-
-import Model.MemberDAO;
-import Model.MemberDTO;
-import Model.ToyDAO;
-import Model.ToyDTO;
-
-import javax.swing.JRadioButton;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Color;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import Model.MemberDTO;
+import Model.ToyDAO;
+import Model.ToyDTO;
 
 public class ToyInfoGUI {
 
@@ -157,6 +149,17 @@ public class ToyInfoGUI {
 
 		frame.getContentPane().add(lblNewLabel_1);
 
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 130, 860, 351);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 10, 840, 319);
+		panel.add(scrollPane);
+		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
+
 		JButton bt_search = new JButton("\uAC80\uC0C9\r\n");
 		bt_search.setFont(new Font("굴림", Font.BOLD, 15));
 		bt_search.setForeground(Color.WHITE);
@@ -194,54 +197,43 @@ public class ToyInfoGUI {
 		lblNewLabel_2.setIcon(new ImageIcon(a));
 		lblNewLabel_2.setBounds(304, 21, 57, 61);
 		frame.getContentPane().add(lblNewLabel_2);
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(12, 130, 860, 351);
-		panel.setBackground(new Color(250, 236, 197));
-		frame.getContentPane().add(panel);
-		panel.setLayout(null);
-		
-				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBounds(12, 10, 840, 319);
-				panel.add(scrollPane);
-				scrollPane.getViewport().setBackground(new Color(250, 236, 197));
-				
-						table = new JTable(model);
-						scrollPane.setViewportView(table);
-						
-								table.addMouseListener(new MouseAdapter() {
-									@Override
-									public void mouseClicked(MouseEvent e) {
-										if (e.getClickCount() == 2) {
-											ArrayList<ToyDTO> ToyDTOAL = new ArrayList<ToyDTO>();
-											ToyDAO dao = new ToyDAO();
-											int row = table.getSelectedRow();
-											num = (int) table.getValueAt(row, 0);
-											ToyDTOAL = dao.detailInfo(num);
-											ToyDTO dto = ToyDTOAL.get(0);
-											basketList.add(dto);
-						
-											System.out.println("0번째 값 : " + ToyDTOAL.get(0));
-						
-											int cnt = dao.addBasket(dto, memDTO); // 대여 테이블 저장
-											if (cnt != 0) {
-												System.out.println("장바구니 담기 완료");
-											} else {
-												System.out.println("장바구니 실패");
-											}
-						
-											// System.out.println(ToyDTOAL.toString());
-						
-											for (int i = 0; i < basketList.size(); i++) {
-												System.out.println("바스켓 숫자 출력" + basketList.get(i));
-											}
-										} else if (e.getClickCount() == 1) {
-											int row = table.getSelectedRow();
-											num = (int) table.getValueAt(row, 0);
-										}
-						
-									}
-						
-								});
+
+		table = new JTable(model);
+		scrollPane.setViewportView(table);
+
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if (e.getClickCount() == 2) {
+					ArrayList<ToyDTO> ToyDTOAL = new ArrayList<ToyDTO>();
+					ToyDAO dao = new ToyDAO();
+					int row = table.getSelectedRow();
+					num = (int) table.getValueAt(row, 0);
+					ToyDTOAL = dao.detailInfo(num);
+					ToyDTO dto = ToyDTOAL.get(0);
+					basketList.add(dto);
+
+					System.out.println("0번째 값 : " + ToyDTOAL.get(0));
+
+					int cnt = dao.addBasket(dto, memDTO); // 대여 테이블 저장
+					if (cnt != 0) {
+						System.out.println("장바구니 담기 완료");
+					} else {
+						System.out.println("장바구니 실패");
+					}
+
+					// System.out.println(ToyDTOAL.toString());
+
+					for (int i = 0; i < basketList.size(); i++) {
+						System.out.println("바스켓 숫자 출력" + basketList.get(i));
+					}
+				} else if (e.getClickCount() == 1) {
+					int row = table.getSelectedRow();
+					num = (int) table.getValueAt(row, 0);
+				}
+
+			}
+
+		});
 	}
 }
