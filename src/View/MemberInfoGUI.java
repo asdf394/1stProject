@@ -22,6 +22,7 @@ import Model.ToyDTO;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 public class MemberInfoGUI {
 
@@ -65,11 +66,11 @@ public class MemberInfoGUI {
 		lblNewLabel.setFont(new Font("±¼¸²", Font.BOLD, 30));
 		lblNewLabel.setForeground(new Color(240, 150, 97));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(195, 33, 146, 34);
+		lblNewLabel.setBounds(369, 33, 146, 34);
 		frame.getContentPane().add(lblNewLabel);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(5, 86, 429, 396);
+		scrollPane.setBounds(24, 86, 410, 396);
 		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
 
 		frame.getContentPane().add(scrollPane);
@@ -107,7 +108,7 @@ public class MemberInfoGUI {
 				MainGUI main = new MainGUI(null);
 			}
 		});
-		btnNewButton.setBounds(5, 492, 429, 41);
+		btnNewButton.setBounds(169, 506, 200, 41);
 		btnNewButton.setBackground(new Color(240, 150, 97));
 		frame.getContentPane().add(btnNewButton);
 
@@ -115,11 +116,11 @@ public class MemberInfoGUI {
 		JLabel lblNewLabel_1 = new JLabel("");
 
 		lblNewLabel_1.setIcon(new ImageIcon(a));
-		lblNewLabel_1.setBounds(126, 10, 72, 66);
+		lblNewLabel_1.setBounds(300, 10, 72, 66);
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(445, 124, 428, 319);
+		scrollPane_1.setBounds(445, 86, 415, 396);
 		scrollPane.getViewport().setBackground(new Color(250, 236, 197));
 		frame.getContentPane().add(scrollPane_1);
 
@@ -188,6 +189,9 @@ public class MemberInfoGUI {
 		});
 
 		JButton btnNewButton_1 = new JButton("\uBC18\uD658 \uC644\uB8CC");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBackground(new Color(240, 150, 97));
+		btnNewButton_1.setFont(new Font("±¼¸²", Font.BOLD, 15));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ToyDAO tDAO = new ToyDAO();
@@ -207,8 +211,14 @@ public class MemberInfoGUI {
 
 			}
 		});
-		btnNewButton_1.setBounds(616, 459, 97, 23);
+		btnNewButton_1.setBounds(541, 506, 200, 41);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(12, 74, 861, 424);
+		panel.setBackground(new Color(250, 236, 197));
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
 
 		/////////// ¿©±â±îÁö ¼öÁ¤
 

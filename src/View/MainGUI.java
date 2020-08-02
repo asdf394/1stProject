@@ -84,6 +84,7 @@ public class MainGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				LoginGUI login = new LoginGUI(null);
+				JOptionPane.showMessageDialog(null, "로그아웃 되었습니다", "로그아웃", JOptionPane.INFORMATION_MESSAGE);
 //				MainGUI mainGui = new MainGUI(dto);
 			}
 		});

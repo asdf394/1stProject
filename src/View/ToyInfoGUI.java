@@ -154,7 +154,7 @@ public class ToyInfoGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MainGUI main = new MainGUI(null);
+				MainGUI main = new MainGUI(memDTO);
 			}
 		});
 		btnNewButton.setBounds(571, 492, 225, 39);
