@@ -18,7 +18,7 @@ public class readCSV {
 
 		try {
 			//csv 파일 읽어서 \n으로 나눠 리스트에 저장, 리스트는 ','구분해서 배열로 저장
-			br = Files.newBufferedReader(Paths.get("C:\\Users\\SMT068\\Desktop\\장난감 데이터\\ToyList.csv"));
+			br = Files.newBufferedReader(Paths.get("C:\\Users\\SMT039\\Desktop\\장난감 데이터\\ToyList.csv"));
 			// Charset.forName("UTF-8");
 			String line = "";
 

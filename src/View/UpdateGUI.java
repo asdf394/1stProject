@@ -113,12 +113,11 @@ public class UpdateGUI {
 
 				} else {
 					frame.dispose();
-					JOptionPane.showMessageDialog(null, "회원수정완료");
+					JOptionPane.showMessageDialog(null, "회원수정완료 다시 로그인 해주세요");
 					if (rb_disabled.isSelected()) {
 						saletarget = 1;
 					}
-
-					MainGUI mainGui = new MainGUI(dto);
+					LoginGUI updateBack = new LoginGUI(dto);
 				}
 			}
 		});

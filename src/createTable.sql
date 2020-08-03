@@ -8,6 +8,7 @@ TRUNCATE TABLE TOY_BASKET;
 select toy_no from toy_basket where id ='a';
 insert into toy_pay(no,id,discount,place,pay_year,toy_no) values(PAY_SEQ.NEXTVAL,1,1,1,1,1)
 insert into toy_rental values(394,1,SYSDATE + 7)
+insert into TOY_MEMBER values('admin','123','관리자','광주','11112222',1,null);
 
 --테이블 삭제
 drop table toy CASCADE CONSTRAINTS;
@@ -136,4 +137,3 @@ NOCYCLE; --순한하지않음
 	CONSTRAINT "BOARD_MEM_ID_FK1" FOREIGN KEY ("ID")
 	 REFERENCES "HR"."TOY_MEMBER" ("ID")	
    );
- delete from toy_board;

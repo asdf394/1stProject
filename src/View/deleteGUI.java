@@ -47,6 +47,7 @@ public class deleteGUI {
 	public deleteGUI(MemberDTO dto) {
 		initialize(dto);
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
 	}
 
 	/**
@@ -84,7 +85,7 @@ public class deleteGUI {
 				}else {
 					frame.dispose();
 					JOptionPane.showMessageDialog(null,  "È¸¿øÅ»Åð¿Ï·á");
-					MainGUI mainGui = new MainGUI(dto);
+					LoginGUI delete = new LoginGUI(dto);
 					
 					
 				}

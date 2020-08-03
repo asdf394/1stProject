@@ -115,6 +115,7 @@ public class MainGUI {
 		btn_main_modify.setForeground(Color.WHITE);
 		btn_main_modify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
 				UpdateGUI update = new UpdateGUI(dto);
 			}
 		});

@@ -111,7 +111,7 @@ public class PayGUI {
 		lblNewLabel_7.setForeground(new Color(233, 113, 113));
 		panel.add(lblNewLabel_7);
 
-		JRadioButton btn_disabled = new JRadioButton("\uC7A5\uC560\uC778, \uAE30\uCD08\uC218\uAE09\uC790");
+		JRadioButton btn_disabled = new JRadioButton("\uD560\uC778\uB300\uC0C1\uC790");
 		btn_disabled.setBounds(203, 166, 129, 23);
 		btn_disabled.setForeground(new Color(233, 113, 113));
 		panel.add(btn_disabled);
