@@ -47,8 +47,8 @@ public class MemberInfoGUI {
 	 * 
 	 * /** Create the application.
 	 */
-	public MemberInfoGUI() {
-		initialize();
+	public MemberInfoGUI(MemberDTO memDTO) {
+		initialize(memDTO);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
@@ -56,7 +56,7 @@ public class MemberInfoGUI {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(MemberDTO memDTO) {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.WHITE);
 		frame.setBounds(100, 100, 901, 601);
@@ -106,7 +106,7 @@ public class MemberInfoGUI {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
-				MainGUI main = new MainGUI(null);
+				MainGUI main = new MainGUI(memDTO);
 			}
 		});
 		btnNewButton.setBounds(169, 506, 200, 41);

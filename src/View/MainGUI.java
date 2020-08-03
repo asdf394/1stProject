@@ -101,7 +101,7 @@ public class MainGUI {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				if (loginDto.getId().equals("admin")) {
-					MemberInfoGUI admin = new MemberInfoGUI();
+					MemberInfoGUI admin = new MemberInfoGUI(dto);
 				} else {
 					MemberInfoOnlyGUI member = new MemberInfoOnlyGUI(dto);
 				}
